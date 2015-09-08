@@ -1,7 +1,4 @@
-Olutopas on ohjelma joka suosittelee sinulle oluita. Voit hakea olutoppaasta maan, merkin, ruuan suosituksella oluita. Olutoppaaseen pääset merkitsemään mistä tykkäsit ja mistä et.
-        Kaikkien käyttäjien toiminnot: 
-                järjestelmään kirjautuminen
-                oluiden etsiminen
-                tykkää/entykkää nappi
-
-
+Aihe: Laskin. Ohjelma jonka avulla voit laskea laskuja. Laskimella pystyt ratkaisemaan "yksinkertaisia" laskuja. Ohjelman ulkoasu ja toiminnot jäljittelevät windowsin normaalia laskinta.
+Käyttäjät: yksi käyttäjä
+Käyttäjien toimminnot: Laskimeen kirjautuminen (onnistuu jos salasana ja käyttäjätunnus ovat oikein)
+  
