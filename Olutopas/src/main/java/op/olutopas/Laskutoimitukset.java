@@ -16,15 +16,15 @@ public class Laskutoimitukset {
         
     }
     public int plussaa(int tulostettuLuku, int syotettyLuku) {
-                int summa = tulostettuLuku + syotettyLuku;
-                return summa;
+        int summa = tulostettuLuku + syotettyLuku;
+        return summa;
 
     }
     public int miinusta(int tulostettuLuku, int syotettyLuku) {
         int erotus = tulostettuLuku - syotettyLuku;
         return erotus;
     }
-    public int tulo(int tulostettuLuku, int syotettyLuku) {
+    public int tulo(int syotettyLuku, int tulostettuLuku) {
     int tulo = tulostettuLuku * syotettyLuku;
     return tulo;
     }
@@ -33,11 +33,16 @@ public class Laskutoimitukset {
         return piintulos;
         
     }
-//    private void nollaa() {
+    public int yhtakuin(int syotettyLuku) {
+        int yhtakuin = syotettyLuku;
+        return yhtakuin;
+    }
+//        public void nollaa() {
 //        int tyhja = 0;
-//    String tyhja2 = "";
-//    tuloste.setText("" + tyhja);
-//    syote.setText("" + tyhja2);
+//        String tyhja2 = "";
+//        tkuuntelija.tuloste.setText("" + tyhja);
+//        tkuuntelija.setText("" + tyhja2);
 //    }
+
     
 }

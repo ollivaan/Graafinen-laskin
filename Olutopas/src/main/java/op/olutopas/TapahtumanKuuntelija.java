@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package op.olutopas;
-
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +12,16 @@ import javax.swing.JTextField;
 
 public class TapahtumanKuuntelija implements ActionListener {
 
+    private JButton nolla;
+    private JButton yksi;
+    private JButton kaksi;
+    private JButton kolme;
+    private JButton neljä;
+    private JButton viisi;
+    private JButton kuusi;
+    private JButton seitsemän;
+    private JButton kahdeksan;
+    private JButton yhdeksän;
     private JButton plus;
     private JButton miinus;
     private JButton kerto;
@@ -25,7 +33,9 @@ public class TapahtumanKuuntelija implements ActionListener {
     public Laskutoimitukset laskut;
 
     public TapahtumanKuuntelija(JButton plus, JButton miinus, JButton kerto, JButton yhtakuin, JTextField tuloste, JTextField syote, JButton C,
-            JButton pii) {
+            JButton pii, Laskutoimitukset laskutoimitukset) {
+//        JButton yksi,JButton kaksi, JButton kolme, JButton neljä, JButton viisi, 
+//            JButton kuusi, JButton seitsemän, JButton kahdeksan, JButton yhdeksän
         this.plus = plus;
         this.miinus = miinus;
         this.kerto = kerto;
@@ -34,6 +44,9 @@ public class TapahtumanKuuntelija implements ActionListener {
         this.syote = syote;
         this.C = C;
         this.pii = pii;
+        this.laskut = laskutoimitukset;
+        this.yksi=yksi;
+
     }
 
     @Override
@@ -63,7 +76,7 @@ public class TapahtumanKuuntelija implements ActionListener {
                 int syotettyLuku = Integer.parseInt(syote.getText());
                 int tulostettuLuku = Integer.parseInt(tuloste.getText());
                 int erotus = laskut.miinusta(syotettyLuku, tulostettuLuku);
-                
+
                 tuloste.setText("" + erotus);
                 syote.setText("");
                 if (erotus == 0) {
@@ -80,7 +93,7 @@ public class TapahtumanKuuntelija implements ActionListener {
                 int syotettyLuku = Integer.parseInt(syote.getText());
                 int tulostettuLuku = Integer.parseInt(tuloste.getText());
                 int kertolasku = laskut.tulo(syotettyLuku, tulostettuLuku);
-                
+
                 tuloste.setText("" + kertolasku);
                 syote.setText("");
                 if (kertolasku == 0) {
@@ -97,7 +110,7 @@ public class TapahtumanKuuntelija implements ActionListener {
             try {
                 int syotettyLuku = Integer.parseInt(syote.getText());
                 int tulostettuLuku = Integer.parseInt(tuloste.getText());
-                int lukusyotetty = syotettyLuku;
+                int lukusyotetty = laskut.yhtakuin(syotettyLuku);
                 tuloste.setText("" + lukusyotetty);
                 syote.setText("");
                 if (syotettyLuku == 0) {
@@ -131,22 +144,8 @@ public class TapahtumanKuuntelija implements ActionListener {
             nollaa();
 
         }
-        
-    }
-//    public int plussaa(int tulostettuLuku, int syotettyLuku) {
-//                int summa = tulostettuLuku + syotettyLuku;
-//                return summa;
-//
-//    }
-//    public int miinusta(int tulostettuLuku, int syotettyLuku) {
-//        int erotus = tulostettuLuku - syotettyLuku;
-//        return erotus;
-//    }
-//    public int tulo(int tulostettuLuku, int syotettyLuku) {
-//    int tulo = tulostettuLuku * syotettyLuku;
-//    return tulo;
-//    }
 
+    }
 
     private void nollaa() {
         int tyhja = 0;
@@ -156,4 +155,3 @@ public class TapahtumanKuuntelija implements ActionListener {
     }
 
 }
-
