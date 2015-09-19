@@ -1,1 +1,1 @@
-# $ Tämä on LASKIN! nimi on väärä
+# Tämä on LASKIN! nimi on väärä
