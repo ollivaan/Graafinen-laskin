@@ -33,6 +33,15 @@ public class Laskutoimitukset {
         return piintulos;
         
     }
+    public double jakoLasku(int tulostettuLuku, int syotettyLuku) {
+      double tulos = (syotettyLuku) / tulostettuLuku;
+        return tulos;
+        
+    }
+    public int yhtakuin(int syotettyLuku) {
+        int tulos = syotettyLuku;
+        return tulos;
+    }
 //    private void nollaa() {
 //        int tyhja = 0;
 //    String tyhja2 = "";

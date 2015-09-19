@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package op.olutopas;
 
@@ -18,14 +14,15 @@ public class TapahtumanKuuntelija implements ActionListener {
     private JButton miinus;
     private JButton kerto;
     private JButton yhtakuin;
+    private JButton jako;
     private JButton C;
     private JButton pii;
     public JTextField tuloste;
     public JTextField syote;
     public Laskutoimitukset laskut;
 
-    public TapahtumanKuuntelija(JButton plus, JButton miinus, JButton kerto, JButton yhtakuin, JTextField tuloste, JTextField syote, JButton C,
-            JButton pii) {
+    public TapahtumanKuuntelija(JButton plus, JButton miinus, JButton kerto, JButton jako, JButton yhtakuin, JTextField tuloste, JTextField syote, JButton C,
+            JButton pii, Laskutoimitukset laskutoimitukset) {
         this.plus = plus;
         this.miinus = miinus;
         this.kerto = kerto;
@@ -34,7 +31,12 @@ public class TapahtumanKuuntelija implements ActionListener {
         this.syote = syote;
         this.C = C;
         this.pii = pii;
+        this.laskut=laskutoimitukset;
+        this.jako=jako;
+        
     }
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -97,7 +99,8 @@ public class TapahtumanKuuntelija implements ActionListener {
             try {
                 int syotettyLuku = Integer.parseInt(syote.getText());
                 int tulostettuLuku = Integer.parseInt(tuloste.getText());
-                int lukusyotetty = syotettyLuku;
+                int lukusyotetty = laskut.yhtakuin(syotettyLuku);
+                
                 tuloste.setText("" + lukusyotetty);
                 syote.setText("");
                 if (syotettyLuku == 0) {
@@ -113,7 +116,7 @@ public class TapahtumanKuuntelija implements ActionListener {
             try {
                 int syotettyLuku = Integer.parseInt(syote.getText());
                 int tulostettuLuku = Integer.parseInt(tuloste.getText());
-                double piintulos = this.laskut.pii(tulostettuLuku, syotettyLuku);
+                double piintulos = this.laskut.pii(syotettyLuku);
                 tuloste.setText("" + piintulos);
                 syote.setText("");
                 if (piintulos == 0) {
@@ -125,6 +128,23 @@ public class TapahtumanKuuntelija implements ActionListener {
                 this.syote.setText("");
                 return;
             }
+                } else if (e.getSource() == jako) {
+            try {
+                int syotettyLuku = Integer.parseInt(syote.getText());
+                int tulostettuLuku = Integer.parseInt(tuloste.getText());
+                double jakolasku = this.laskut.jakoLasku(tulostettuLuku, syotettyLuku);
+                tuloste.setText("" + jakolasku);
+                syote.setText("");
+                if (jakolasku == 0) {
+                    C.setEnabled(false);
+                } else {
+                    C.setEnabled(true);
+                }
+            } catch (NumberFormatException ea) {
+                this.syote.setText("");
+                return;
+            }
+
 
         } else if (e.getSource() == C) {
             C.setEnabled(false);
