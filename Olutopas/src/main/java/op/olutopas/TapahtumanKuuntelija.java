@@ -43,9 +43,9 @@ public class TapahtumanKuuntelija implements ActionListener {
 
         if (e.getSource() == plus) {
             try {
-                int syotettyLuku = Integer.parseInt(syote.getText());
-                int tulostettuLuku = Integer.parseInt(tuloste.getText());
-                int summa = laskut.plussaa(tulostettuLuku, syotettyLuku);
+                double syotettyLuku = Integer.parseInt(syote.getText());
+                double tulostettuLuku = Integer.parseInt(tuloste.getText());
+                double summa = laskut.plussaa(tulostettuLuku, syotettyLuku);
 
                 tuloste.setText("" + summa);
                 syote.setText("");
@@ -59,9 +59,9 @@ public class TapahtumanKuuntelija implements ActionListener {
 
         } else if (e.getSource() == miinus) {
             try {
-                int syotettyLuku = Integer.parseInt(syote.getText());
-                int tulostettuLuku = Integer.parseInt(tuloste.getText());
-                int erotus = laskut.miinusta(syotettyLuku, tulostettuLuku);
+                double syotettyLuku = Integer.parseInt(syote.getText());
+                double tulostettuLuku = Integer.parseInt(tuloste.getText());
+                double erotus = laskut.miinusta(syotettyLuku, tulostettuLuku);
                 
                 tuloste.setText("" + erotus);
                 syote.setText("");
@@ -74,9 +74,9 @@ public class TapahtumanKuuntelija implements ActionListener {
             }
         } else if (e.getSource() == kerto) {
             try {
-                int syotettyLuku = Integer.parseInt(syote.getText());
-                int tulostettuLuku = Integer.parseInt(tuloste.getText());
-                int kertolasku = laskut.tulo(syotettyLuku, tulostettuLuku);
+                double syotettyLuku = Integer.parseInt(syote.getText());
+                double tulostettuLuku = Integer.parseInt(tuloste.getText());
+                double kertolasku = laskut.tulo(syotettyLuku, tulostettuLuku);
                 
                 tuloste.setText("" + kertolasku);
                 syote.setText("");
@@ -88,8 +88,8 @@ public class TapahtumanKuuntelija implements ActionListener {
             }
         } else if (e.getSource() == yhtakuin) {
             try {
-                int syotettyLuku = Integer.parseInt(syote.getText());
-                int tulostettuLuku = Integer.parseInt(tuloste.getText());
+                double syotettyLuku = Integer.parseInt(syote.getText());
+                double tulostettuLuku = Integer.parseInt(tuloste.getText());
                 double lukusyotetty = laskut.yhtakuin(syotettyLuku);
                 
                 tuloste.setText("" + lukusyotetty);
@@ -103,8 +103,8 @@ public class TapahtumanKuuntelija implements ActionListener {
             }
         } else if (e.getSource() == pii) {
             try {
-                int syotettyLuku = Integer.parseInt(syote.getText());
-                int tulostettuLuku = Integer.parseInt(tuloste.getText());
+                double syotettyLuku = Integer.parseInt(syote.getText());
+                double tulostettuLuku = Integer.parseInt(tuloste.getText());
                 double piintulos = this.laskut.pii(syotettyLuku);
                 tuloste.setText("" + piintulos);
                 syote.setText("");
@@ -116,8 +116,8 @@ public class TapahtumanKuuntelija implements ActionListener {
             }
                 } else if (e.getSource() == jako) {
             try {
-                int syotettyLuku = Integer.parseInt(syote.getText());
-                int tulostettuLuku = Integer.parseInt(tuloste.getText());
+                double syotettyLuku = Integer.parseInt(syote.getText());
+                double tulostettuLuku = Integer.parseInt(tuloste.getText());
                 double jakolasku = this.laskut.jakoLasku(tulostettuLuku, syotettyLuku);
                 tuloste.setText("" + jakolasku);
                 syote.setText("");
@@ -148,19 +148,7 @@ public class TapahtumanKuuntelija implements ActionListener {
                 }
         
     }
-//    public int plussaa(int tulostettuLuku, int syotettyLuku) {
-//                int summa = tulostettuLuku + syotettyLuku;
-//                return summa;
-//
-//    }
-//    public int miinusta(int tulostettuLuku, int syotettyLuku) {
-//        int erotus = tulostettuLuku - syotettyLuku;
-//        return erotus;
-//    }
-//    public int tulo(int tulostettuLuku, int syotettyLuku) {
-//    int tulo = tulostettuLuku * syotettyLuku;
-//    return tulo;
-//    }
+
 
 
     private void nollaa() {

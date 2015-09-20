@@ -15,31 +15,31 @@ public class Laskutoimitukset {
     public Laskutoimitukset() {
         
     }
-    public int plussaa(int tulostettuLuku, int syotettyLuku) {
-                int summa = tulostettuLuku + syotettyLuku;
+    public double plussaa(double tulostettuLuku, double syotettyLuku) {
+                double summa = tulostettuLuku + syotettyLuku;
                 return summa;
 
     }
-    public int miinusta(int tulostettuLuku, int syotettyLuku) {
-        int erotus = tulostettuLuku - syotettyLuku;
+    public double miinusta(double tulostettuLuku, double syotettyLuku) {
+        double erotus = tulostettuLuku - syotettyLuku;
         return erotus;
     }
-    public int tulo(int tulostettuLuku, int syotettyLuku) {
-    int tulo = tulostettuLuku * syotettyLuku;
+    public double tulo(double tulostettuLuku, double syotettyLuku) {
+    double tulo = tulostettuLuku * syotettyLuku;
     return tulo;
     }
-    public double pii(int syotettyLuku) {
+    public double pii(double syotettyLuku) {
       double piintulos = (syotettyLuku) * Math.PI;
         return piintulos;
         
     }
-    public double jakoLasku(int tulostettuLuku, int syotettyLuku) {
+    public double jakoLasku(double tulostettuLuku, double syotettyLuku) {
       double tulos = (syotettyLuku) / tulostettuLuku;
         return tulos;
         
     }
-    public int yhtakuin(int syotettyLuku) {
-        int tulos = syotettyLuku;
+    public double yhtakuin(double syotettyLuku) {
+        double tulos = syotettyLuku;
         return tulos;
     }
 //    private void nollaa() {
