@@ -17,7 +17,6 @@ import org.junit.Test;
  *
  * @author ollivaan
  */
-
 public class TapahtumanKuuntelijaTest {
     
     TapahtumanKuuntelija tapahtumankuuntelija;
@@ -34,13 +33,6 @@ public class TapahtumanKuuntelijaTest {
     
     @After
     public void tearDown() {
-    }
-    
-    @Test
-    public double tyhjennaNappainOikein() {
-        double arvo = 3.0;
-        assertEquals(3.0,tapahtumankuuntelija.tyhjennaNappain(arvo));
-        return 0;
     }
 
 

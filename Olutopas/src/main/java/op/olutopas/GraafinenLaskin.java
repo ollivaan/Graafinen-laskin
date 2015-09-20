@@ -37,15 +37,17 @@ public class GraafinenLaskin implements Runnable {
     private void luoKomponentit(Container container) {
         GridLayout GL = new GridLayout(3, 5);
         container.setLayout(GL);
-        JTextField kentta = new JTextField("0");
-        kentta.setEnabled(false);
-        JTextField eka = new JTextField();
+        JTextField naytto1 = new JTextField("0"); naytto1.getCursor();
+        naytto1.setEnabled(false);
+        
+        JTextField naytto2 = new JTextField();
+        
         JPanel panel = new JPanel(new GridLayout(0, 6, 5, 5));
         panel.setBackground(Color.getHSBColor(245, 245, 245));
          
         container.add(panel);
  
-        container.add(kentta);
+        container.add(naytto1);
         Laskutoimitukset laskutoimitukset = new Laskutoimitukset();
         JButton yksi = new JButton("1");
         JButton kaksi = new JButton("2");
@@ -70,7 +72,7 @@ public class GraafinenLaskin implements Runnable {
         JButton potenssiinkaksi = new JButton("x^2");
         C.setEnabled(false);
 
-        TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, kerto, jako, yhtakuin, kentta, eka, C, pii, 
+        TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, kerto, jako, yhtakuin, naytto1, naytto2, C, pii, 
                 laskutoimitukset);
 
         plus.addActionListener(kuuntelija);
@@ -101,8 +103,8 @@ public class GraafinenLaskin implements Runnable {
         panel.add(nolla);
         panel.add(yhtakuin);
         panel.add(C);
-        container.add(kentta);
-        container.add(eka);
+        container.add(naytto1);
+        container.add(naytto2);
         container.add(panel);
  
     }

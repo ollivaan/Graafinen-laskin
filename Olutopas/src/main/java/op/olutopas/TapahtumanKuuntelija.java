@@ -49,11 +49,8 @@ public class TapahtumanKuuntelija implements ActionListener {
 
                 tuloste.setText("" + summa);
                 syote.setText("");
-                if (summa == 0) {
-                    C.setEnabled(false);
-                } else {
-                    C.setEnabled(true);
-                }
+                
+                tyhjennaNappain(summa);
 
             } catch (NumberFormatException ea) {
                 this.syote.setText("");
@@ -68,11 +65,9 @@ public class TapahtumanKuuntelija implements ActionListener {
                 
                 tuloste.setText("" + erotus);
                 syote.setText("");
-                if (erotus == 0) {
-                    C.setEnabled(false);
-                } else {
-                    C.setEnabled(true);
-                }
+                
+                tyhjennaNappain(erotus);
+                
             } catch (NumberFormatException ea) {
                 this.syote.setText("");
                 return;
@@ -85,11 +80,7 @@ public class TapahtumanKuuntelija implements ActionListener {
                 
                 tuloste.setText("" + kertolasku);
                 syote.setText("");
-                if (kertolasku == 0) {
-                    C.setEnabled(false);
-                } else {
-                    C.setEnabled(true);
-                }
+                tyhjennaNappain(kertolasku);
 
             } catch (NumberFormatException ea) {
                 this.syote.setText("");
@@ -99,15 +90,13 @@ public class TapahtumanKuuntelija implements ActionListener {
             try {
                 int syotettyLuku = Integer.parseInt(syote.getText());
                 int tulostettuLuku = Integer.parseInt(tuloste.getText());
-                int lukusyotetty = laskut.yhtakuin(syotettyLuku);
+                double lukusyotetty = laskut.yhtakuin(syotettyLuku);
                 
                 tuloste.setText("" + lukusyotetty);
                 syote.setText("");
-                if (syotettyLuku == 0) {
-                    C.setEnabled(false);
-                } else {
-                    C.setEnabled(true);
-                }
+
+                tyhjennaNappain(lukusyotetty);
+                
             } catch (NumberFormatException ea) {
                 this.syote.setText("");
                 return;
@@ -119,11 +108,8 @@ public class TapahtumanKuuntelija implements ActionListener {
                 double piintulos = this.laskut.pii(syotettyLuku);
                 tuloste.setText("" + piintulos);
                 syote.setText("");
-                if (piintulos == 0) {
-                    C.setEnabled(false);
-                } else {
-                    C.setEnabled(true);
-                }
+                tyhjennaNappain(piintulos);
+                
             } catch (NumberFormatException ea) {
                 this.syote.setText("");
                 return;
@@ -135,11 +121,12 @@ public class TapahtumanKuuntelija implements ActionListener {
                 double jakolasku = this.laskut.jakoLasku(tulostettuLuku, syotettyLuku);
                 tuloste.setText("" + jakolasku);
                 syote.setText("");
-                if (jakolasku == 0) {
-                    C.setEnabled(false);
-                } else {
-                    C.setEnabled(true);
-                }
+                tyhjennaNappain(jakolasku);
+//                if (jakolasku == 0) {
+//                    C.setEnabled(false);
+//                } else {
+//                    C.setEnabled(true);
+//                }
             } catch (NumberFormatException ea) {
                 this.syote.setText("");
                 return;
@@ -151,6 +138,14 @@ public class TapahtumanKuuntelija implements ActionListener {
             nollaa();
 
         }
+        
+    }
+    public void tyhjennaNappain(double lasku) {
+                if (lasku == 0) {
+                    C.setEnabled(false);
+                } else {
+                    C.setEnabled(true);
+                }
         
     }
 //    public int plussaa(int tulostettuLuku, int syotettyLuku) {

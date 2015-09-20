@@ -4,44 +4,41 @@
  * and open the template in the editor.
  */
 
-import op.olutopas.GraafinenLaskin;
-import op.olutopas.TapahtumanKuuntelija;
 import org.junit.After;
 import org.junit.AfterClass;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author ollivaan
  */
-
-public class TapahtumanKuuntelijaTest {
+public class MainTest {
     
-    TapahtumanKuuntelija tapahtumankuuntelija;
+    public MainTest() {
+    }
     
-    public TapahtumanKuuntelijaTest() {
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
     }
     
     @Before
     public void setUp() {
-
     }
-    
-
     
     @After
     public void tearDown() {
     }
-    
-    @Test
-    public double tyhjennaNappainOikein() {
-        double arvo = 3.0;
-        assertEquals(3.0,tapahtumankuuntelija.tyhjennaNappain(arvo));
-        return 0;
-    }
 
-
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
 }

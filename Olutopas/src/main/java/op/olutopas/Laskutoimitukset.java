@@ -28,7 +28,7 @@ public class Laskutoimitukset {
     int tulo = tulostettuLuku * syotettyLuku;
     return tulo;
     }
-    public double pii(int tulostettuLuku, int syotettyLuku) {
+    public double pii(int syotettyLuku) {
       double piintulos = (syotettyLuku) * Math.PI;
         return piintulos;
         
