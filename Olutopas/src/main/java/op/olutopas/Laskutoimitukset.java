@@ -15,34 +15,44 @@ public class Laskutoimitukset {
     public Laskutoimitukset() {
         
     }
-    public int plussaa(int tulostettuLuku, int syotettyLuku) {
-        int summa = tulostettuLuku + syotettyLuku;
-        return summa;
+    public double plussaa(double tulostettuLuku, double syotettyLuku) {
+                double summa = tulostettuLuku + syotettyLuku;
+                return summa;
 
     }
-    public int miinusta(int tulostettuLuku, int syotettyLuku) {
-        int erotus = tulostettuLuku - syotettyLuku;
+    public double miinusta(double tulostettuLuku, double syotettyLuku) {
+        double erotus = tulostettuLuku - syotettyLuku;
         return erotus;
     }
-    public int tulo(int syotettyLuku, int tulostettuLuku) {
-    int tulo = tulostettuLuku * syotettyLuku;
+    public double tulo(double tulostettuLuku, double syotettyLuku) {
+    double tulo = tulostettuLuku * syotettyLuku;
     return tulo;
     }
-    public double pii(int tulostettuLuku, int syotettyLuku) {
-      double piintulos = (syotettyLuku) * Math.PI;
-        return piintulos;
+//     double pii(double syotettyLuku) {
+//      double piintulos = (syotettyLuku) * Math.PI;
+//        return piintulos;
+//        
+//    }
+    public double jakoLasku(double tulostettuLuku, double syotettyLuku) {
+      double tulos = (syotettyLuku) / tulostettuLuku;
+        return tulos;
         
     }
-    public int yhtakuin(int syotettyLuku) {
-        int yhtakuin = syotettyLuku;
-        return yhtakuin;
+    public double yhtakuin(double syotettyLuku) {
+        double tulos = syotettyLuku;
+        return tulos;
     }
-//        public void nollaa() {
+//    private void nollaa() {
 //        int tyhja = 0;
-//        String tyhja2 = "";
-//        tkuuntelija.tuloste.setText("" + tyhja);
-//        tkuuntelija.setText("" + tyhja2);
+//    String tyhja2 = "";
+//    tuloste.setText("" + tyhja);
+//    syote.setText("" + tyhja2);
 //    }
 
-    
+    double pii(double syotettyLuku) {
+      double piintulos = (syotettyLuku) * Math.PI;
+        return piintulos;
+    }
+
+
 }

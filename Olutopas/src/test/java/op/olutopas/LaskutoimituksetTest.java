@@ -1,9 +1,11 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package op.olutopas;
+import op.olutopas.Laskutoimitukset;
 import op.olutopas.Laskutoimitukset;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -45,14 +47,35 @@ public class LaskutoimituksetTest {
         assertEquals(30, tulos);
     }
     @Test
-    public void yhtaKuin() {
-        int tulos = this.laskut.yhtakuin(4);
-        assertEquals(4, tulos);
+    public void jaaOikein() {
+        int tulos = this.laskut.jako(6, 6);
+        assertEquals((6/6), tulos);
     }
+    @Test
+    public void potenssiKaksiOikein() {
+        int tulos = this.laskut.potenssiinKaksi(2);
+        assertEquals((2^2), tulos);
+    }
+    @Test
+    public void piiOikein() {
+        double tulos = this.laskut.pii(1);
+//        double oikeatulos = 3.141592653589793;
+        assertEquals(1*Math.PI, tulos);
+
+        
+    }
+
 //    @Test
 //    public void pii() {
 //        double tulos = this.laskut.pii(5, 6);
 //        assertEquals(30, tulos);
 //    }
+    
 
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
 }
