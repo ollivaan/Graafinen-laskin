@@ -1,9 +1,4 @@
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package op.olutopas;
 import op.olutopas.Laskutoimitukset;
 import op.olutopas.Laskutoimitukset;
@@ -14,18 +9,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/**
- *
- * @author ollivaan
- */
 public class LaskutoimituksetTest {
     
     Laskutoimitukset laskut;
+    private final double epsilon;
     public LaskutoimituksetTest() {
-        
+        this.epsilon=0.0000001;
     }
     
-
     
     @Before
     public void setUp() {
@@ -33,49 +24,55 @@ public class LaskutoimituksetTest {
     }
         @Test
     public void plussaaOikein() {
-        int tulos = this.laskut.plussaa(5, 6);
-        assertEquals(11, tulos);
+        double tulos = this.laskut.plussaa(6.0, 6.0);
+        double erotus = Math.abs(tulos-12.0);
+        assertTrue(erotus<epsilon);
     }
     @Test
     public void vahennaOikein() {
-        int tulos = this.laskut.miinusta(5, 6);
-        assertEquals(-1, tulos);
+        double tulos = this.laskut.miinusta(6, 6);
+        double erotus = Math.abs(tulos-0);
+        assertTrue(erotus<epsilon);
+
     }
     @Test
     public void kerroOikein() {
-        int tulos = this.laskut.tulo(5, 6);
-        assertEquals(30, tulos);
+        double tulos = this.laskut.tulo(6, 6);
+        double erotus = Math.abs(tulos-36);
+        assertTrue(erotus<epsilon);
     }
     @Test
     public void jaaOikein() {
-        int tulos = this.laskut.jako(6, 6);
-        assertEquals((6/6), tulos);
+        double tulos = this.laskut.jakoLasku(6, 6);
+        double erotus = Math.abs(tulos-1);
+        assertTrue(erotus<epsilon);
     }
     @Test
     public void potenssiKaksiOikein() {
-        int tulos = this.laskut.potenssiinKaksi(2);
-        assertEquals((2^2), tulos);
+        double tulos = this.laskut.potenssiinKaksi(2,2);
+        double erotus = Math.abs(tulos-4);
+        assertTrue(erotus<epsilon);
     }
     @Test
     public void piiOikein() {
         double tulos = this.laskut.pii(1);
+        double erotus = Math.abs(tulos-3.141592653589793);
 //        double oikeatulos = 3.141592653589793;
-        assertEquals(1*Math.PI, tulos);
+        assertTrue(erotus<epsilon);
 
         
     }
+    @Test
+    public void nelioJuuri() {
+        double tulos = this.laskut.nelioJuuri(1);
+        double erotus = Math.abs(tulos-1);
+        assertTrue(erotus<epsilon);
+    }
+    @Test
+    public void pyoristys() {
+        double tulos = this.laskut.pyorista(1.7);
+        double erotus = Math.abs(tulos-2);
+        assertTrue(erotus<epsilon);
+    }
 
-//    @Test
-//    public void pii() {
-//        double tulos = this.laskut.pii(5, 6);
-//        assertEquals(30, tulos);
-//    }
-    
-
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

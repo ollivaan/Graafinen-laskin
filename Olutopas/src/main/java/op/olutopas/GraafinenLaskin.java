@@ -1,5 +1,10 @@
 package op.olutopas;
 
+/**
+ * Luokka huolehtii ulkoisesta toiminnasta ja 
+ * välittää tietoja eteenpäin
+ */
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -65,10 +70,12 @@ public class GraafinenLaskin implements Runnable {
         JButton cos = new JButton("Cos");
         JButton tan = new JButton("Tan");
         JButton potenssiinkaksi = new JButton("x^2");
+        JButton CE = new JButton("CE");
         C.setEnabled(false);
 
         TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, jako, kerto, yhtakuin, 
-                naytto2, naytto1, C, pii, laskutoimitukset, potenssiinkaksi, yksi, kaksi, kolme, neljä, viisi);
+                naytto2, naytto1, C, pii, laskutoimitukset, potenssiinkaksi, yksi, kaksi, kolme, neljä,
+                viisi, kuusi, seitsemän, kahdeksan, yhdeksän, nolla, CE, sin, cos, tan);
  
         plus.addActionListener(kuuntelija);
         jako.addActionListener(kuuntelija);
@@ -83,6 +90,16 @@ public class GraafinenLaskin implements Runnable {
         kolme.addActionListener(kuuntelija);
         neljä.addActionListener(kuuntelija);
         viisi.addActionListener(kuuntelija);
+        kuusi.addActionListener(kuuntelija);
+        seitsemän.addActionListener(kuuntelija);
+        kahdeksan.addActionListener(kuuntelija);
+        yhdeksän.addActionListener(kuuntelija);
+        nolla.addActionListener(kuuntelija);
+        CE.addActionListener(kuuntelija);
+        sin.addActionListener(kuuntelija);
+        cos.addActionListener(kuuntelija);
+        tan.addActionListener(kuuntelija);
+
         
         panel.add(yksi);
         panel.add(kaksi);
@@ -105,6 +122,7 @@ public class GraafinenLaskin implements Runnable {
         panel.add(nolla);
         panel.add(yhtakuin);
         panel.add(C);
+        panel.add(CE);
         container.add(naytto1);
         container.add(naytto2);
         container.add(panel);
