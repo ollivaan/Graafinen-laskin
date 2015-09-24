@@ -3,31 +3,50 @@
 package op.olutopas;
 
 /**
- * Luokka suorittaa laskutoimitukset.
- * 
- *
- * @param   ollivaan   
- * 
- * @return Laskutoimitukset
+ * Luokka hoitaa Laskutoimitukset
  */
 public class Laskutoimitukset {
     TapahtumanKuuntelija tkuuntelija;
     public Laskutoimitukset() {
         
     }
+    /**
+ * Metodi laskee pluslaskun
+ * @param   syote   Käyttäjän antama syöte
+ * 
+ * @return Summa
+ */
     public double plussaa(double tulostettuLuku, double syotettyLuku) {
                 double summa = tulostettuLuku + syotettyLuku;
                 return summa;
-
+    /**
+ * Metodi laskee miinuslaskun
+ * @param   syote   Käyttäjän antama syöte
+ * 
+ * @return Erotus
+ */
     }
     public double miinusta(double tulostettuLuku, double syotettyLuku) {
         double erotus = tulostettuLuku - syotettyLuku;
         return erotus;
     }
+        /**
+ * Metodi laskee kertolaskun
+ * @param   syotettyLuku   Käyttäjän antama syöte
+ * @param   tulostettuLuku Käyttäjän antama syöte
+ * @return Tulo
+ */
     public double tulo(double tulostettuLuku, double syotettyLuku) {
     double tulo = tulostettuLuku * syotettyLuku;
     return tulo;
     }
+    
+    /**
+     * Laskke jakolaskun
+     * @param tulostettuLuku
+     * @param syotettyLuku
+     * @return tulos
+     */
 
     public double jakoLasku(double tulostettuLuku, double syotettyLuku) {
       double tulos = (syotettyLuku) / tulostettuLuku;

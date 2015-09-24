@@ -1,8 +1,8 @@
 package op.olutopas;
 
 /**
- * Luokka huolehtii ulkoisesta toiminnasta ja 
- * välittää tietoja eteenpäin
+ * Luokassa luodaan komponentit/elementit
+ * 
  */
 
 import java.awt.BorderLayout;
@@ -18,6 +18,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
  
+/**
+ * Metodissa luodaan komponentit ja elementit
+ * 
+ */
+
 public class GraafinenLaskin implements Runnable {
  
     private JFrame frame;

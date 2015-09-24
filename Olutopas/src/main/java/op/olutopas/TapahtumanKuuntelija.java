@@ -305,7 +305,9 @@
                 this.naytto2.setText("");
                 return;
               }
+           
                 }
+
     } 
     /**
  * Luokka hoitaa napin "eläväksi"
