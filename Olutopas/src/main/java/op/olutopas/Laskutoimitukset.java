@@ -28,11 +28,7 @@ public class Laskutoimitukset {
     double tulo = tulostettuLuku * syotettyLuku;
     return tulo;
     }
-//     double pii(double syotettyLuku) {
-//      double piintulos = (syotettyLuku) * Math.PI;
-//        return piintulos;
-//        
-//    }
+
     public double jakoLasku(double tulostettuLuku, double syotettyLuku) {
       double tulos = (syotettyLuku) / tulostettuLuku;
         return tulos;
@@ -41,7 +37,16 @@ public class Laskutoimitukset {
     public double yhtakuin(double syotettyLuku) {
         double tulos = syotettyLuku;
         return tulos;
+        
     }
+    public double potenssiinKaksi(double syotettyLuku) {
+      double tulos = syotettyLuku*syotettyLuku;
+        // tämä on potenssiin kaksi
+      //moneen tarvitaan kolmas muuttuja ja se tehdään sen jälkeen for lausellaa
+        return tulos;
+        
+    }
+    
 //    private void nollaa() {
 //        int tyhja = 0;
 //    String tyhja2 = "";

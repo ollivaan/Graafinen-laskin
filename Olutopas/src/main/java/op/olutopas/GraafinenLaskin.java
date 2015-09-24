@@ -37,7 +37,8 @@ public class GraafinenLaskin implements Runnable {
         JTextField naytto2 = new JTextField();
         
         JPanel panel = new JPanel(new GridLayout(0, 6, 5, 5));
-        panel.setBackground(Color.getHSBColor(245, 245, 245));
+        panel.setBackground(Color.blue);
+//        panel.setBackground(Color.getHSBColor(245, 245, 245));
          
         container.add(panel);
  
@@ -66,7 +67,8 @@ public class GraafinenLaskin implements Runnable {
         JButton potenssiinkaksi = new JButton("x^2");
         C.setEnabled(false);
 
-        TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, jako, kerto, yhtakuin, naytto2, naytto1, C, pii, laskutoimitukset);
+        TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, jako, kerto, yhtakuin, 
+                naytto2, naytto1, C, pii, laskutoimitukset, potenssiinkaksi, yksi, kaksi, kolme, neljä, viisi);
  
         plus.addActionListener(kuuntelija);
         jako.addActionListener(kuuntelija);
@@ -75,6 +77,13 @@ public class GraafinenLaskin implements Runnable {
         C.addActionListener(kuuntelija);
         yhtakuin.addActionListener(kuuntelija);
         pii.addActionListener(kuuntelija);
+        potenssiinkaksi.addActionListener(kuuntelija);
+        yksi.addActionListener(kuuntelija);
+        kaksi.addActionListener(kuuntelija);
+        kolme.addActionListener(kuuntelija);
+        neljä.addActionListener(kuuntelija);
+        viisi.addActionListener(kuuntelija);
+        
         panel.add(yksi);
         panel.add(kaksi);
         panel.add(kolme);

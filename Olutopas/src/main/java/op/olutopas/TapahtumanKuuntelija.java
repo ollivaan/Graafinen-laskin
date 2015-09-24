@@ -15,39 +15,71 @@ public class TapahtumanKuuntelija implements ActionListener {
     private JButton jako;
     private JButton C;
     private JButton pii;
+    private JButton potenssiinkaksi;
+    private JButton yksi;
+    private JButton kaksi;
+    private JButton kolme;
+    private JButton neljä;
+    private JButton viisi;
+//    private String moi="moi";
     public JTextField naytto1;
     public JTextField naytto2;
     public Laskutoimitukset laskut;
 
-    public TapahtumanKuuntelija(JButton plus, JButton miinus, JButton jako, JButton kerto, JButton yhtakuin, JTextField naytto2, JTextField naytto1, JButton C,
-            JButton pii, Laskutoimitukset laskutoimitukset) {
+    public TapahtumanKuuntelija(JButton plus, JButton miinus, 
+            JButton jako, JButton kerto, JButton yhtakuin, 
+            JTextField naytto2, JTextField naytto1, JButton C,
+            JButton pii, Laskutoimitukset laskutoimitukset, JButton potenssiinkaksi,
+            JButton yksi, JButton kaksi, JButton kolme, JButton neljä, JButton viisi) {
+        
         this.plus = plus;
         this.miinus = miinus;
         this.kerto = kerto;
         this.yhtakuin = yhtakuin;
-        this.naytto1 = naytto1;
-        this.naytto2 = naytto2;
+        this.jako=jako;
         this.C = C;
         this.pii = pii;
+        this.naytto1 = naytto1;
+        this.naytto2 = naytto2;
         this.laskut=laskutoimitukset;
-        this.jako=jako;
+        this.potenssiinkaksi=potenssiinkaksi;
+        this.yksi=yksi;
+        this.kaksi=kaksi;
+        this.kolme=kolme;
+        this.neljä=neljä;
+        this.viisi=viisi;
+
         
     }
 
-
+    
+    public void nappaintenTunnistus(ActionEvent e) {
+        JButton jbutton = (JButton)e.getSource();
+        String nimi = jbutton.getText();
+//        this.yksi.par
+        System.out.println(nimi);
+// int numero= 233223;
+        switch (nimi) {
+            case "1": naytto1.setText("toimii");
+                
+                
+        }
+    }
 
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        nappaintenTunnistus(e);
+//        break;
         if (e.getSource() == plus) {
             try {
-                double syotettyLuku = Integer.parseInt(naytto2.getText());
-                double tulostettuLuku = Integer.parseInt(naytto1.getText());
+                double syotettyLuku = Double.parseDouble(naytto2.getText());
+                double tulostettuLuku = Double.parseDouble(naytto1.getText());
                 double summa = laskut.plussaa(tulostettuLuku, syotettyLuku);
 
-                naytto1.setText("" + summa);
+                naytto1.setText(summa + "");
+    
                 naytto2.setText("");
                 
                 tyhjennaNappain(summa);
@@ -57,13 +89,16 @@ public class TapahtumanKuuntelija implements ActionListener {
                 return;
             }
 
+
         } else if (e.getSource() == miinus) {
             try {
-                double syotettyLuku = Integer.parseInt(naytto2.getText());
-                double tulostettuLuku = Integer.parseInt(naytto1.getText());
+                double syotettyLuku = Double.parseDouble(naytto2.getText());
+                double tulostettuLuku = Double.parseDouble(naytto1.getText());
                 double erotus = laskut.miinusta(syotettyLuku, tulostettuLuku);
+     
+                    naytto1.setText("" + erotus);
+
                 
-                naytto1.setText("" + erotus);
                 naytto2.setText("");
                 
                 tyhjennaNappain(erotus);
@@ -74,8 +109,8 @@ public class TapahtumanKuuntelija implements ActionListener {
             }
         } else if (e.getSource() == kerto) {
             try {
-                double syotettyLuku = Integer.parseInt(naytto2.getText());
-                double tulostettuLuku = Integer.parseInt(naytto1.getText());
+                double syotettyLuku = Double.parseDouble(naytto2.getText());
+                double tulostettuLuku = Double.parseDouble(naytto1.getText());
                 double kertolasku = laskut.tulo(syotettyLuku, tulostettuLuku);
                 
                 naytto1.setText("" + kertolasku);
@@ -88,8 +123,8 @@ public class TapahtumanKuuntelija implements ActionListener {
             }
         } else if (e.getSource() == yhtakuin) {
             try {
-                double syotettyLuku = Integer.parseInt(naytto2.getText());
-                double tulostettuLuku = Integer.parseInt(naytto1.getText());
+                double syotettyLuku = Double.parseDouble(naytto2.getText());
+                double tulostettuLuku = Double.parseDouble(naytto1.getText());
                 double lukusyotetty = laskut.yhtakuin(syotettyLuku);
                 
                 naytto1.setText("" + lukusyotetty);
@@ -103,8 +138,8 @@ public class TapahtumanKuuntelija implements ActionListener {
             }
         } else if (e.getSource() == pii) {
             try {
-                double syotettyLuku = Integer.parseInt(naytto2.getText());
-                double tulostettuLuku = Integer.parseInt(naytto1.getText());
+                double syotettyLuku = Double.parseDouble(naytto2.getText());
+                double tulostettuLuku = Double.parseDouble(naytto1.getText());
                 double piintulos = this.laskut.pii(syotettyLuku);
                 naytto1.setText("" + piintulos);
                 naytto2.setText("");
@@ -116,17 +151,29 @@ public class TapahtumanKuuntelija implements ActionListener {
             }
                 } else if (e.getSource() == jako) {
             try {
-                double syotettyLuku = Integer.parseInt(naytto1.getText());
-                double tulostettuLuku = Integer.parseInt(naytto2.getText());
+                double syotettyLuku = Double.parseDouble(naytto1.getText());
+                double tulostettuLuku = Double.parseDouble(naytto2.getText());
                 double jakolasku = this.laskut.jakoLasku(tulostettuLuku, syotettyLuku);
                 naytto1.setText("" + jakolasku);
                 naytto2.setText("");
                 tyhjennaNappain(jakolasku);
-//                if (jakolasku == 0) {
-//                    C.setEnabled(false);
-//                } else {
-//                    C.setEnabled(true);
-//                }
+
+            } catch (NumberFormatException ea) {
+                this.naytto2.setText("");
+                return;
+            }
+                    if (e.getSource() == potenssiinkaksi) {
+            try {
+                double syotettyLuku = Double.parseDouble(naytto2.getText());
+                double tulostettuLuku = Double.parseDouble(naytto1.getText());
+                double potenssiin = this.laskut.potenssiinKaksi(syotettyLuku);
+
+                naytto1.setText(potenssiin + "");
+    
+                naytto2.setText("");
+                
+                tyhjennaNappain(potenssiin);
+
             } catch (NumberFormatException ea) {
                 this.naytto2.setText("");
                 return;
@@ -140,6 +187,8 @@ public class TapahtumanKuuntelija implements ActionListener {
         }
         
     }
+    }
+    
     public void tyhjennaNappain(double lasku) {
                 if (lasku == 0) {
                     C.setEnabled(false);
@@ -150,6 +199,14 @@ public class TapahtumanKuuntelija implements ActionListener {
     }
 
 
+//    public double nappaimenTunnistus(ActionEvent e) {
+//        if(e.getSource() == yksi)) {
+//            double syotetty = 1.0;
+//            return  syotetty;
+//        }
+//        return 0;
+//        
+//    }
 
     private void nollaa() {
         int tyhja = 0;
