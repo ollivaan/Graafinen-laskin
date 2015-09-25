@@ -32,9 +32,11 @@
     private JButton yhdeksän;
     private JButton nolla;
     private JButton CE;
+    private JButton round;
     public JTextField naytto1;
     public JTextField naytto2;
     public Laskutoimitukset laskut;
+
 /**
  * 
  * @param plus
@@ -65,37 +67,39 @@
  * luokassa määritellään kyseiset komponentit xD
  */
     public TapahtumanKuuntelija(JButton plus, JButton miinus, 
-            JButton jako, JButton kerto, JButton yhtakuin, 
-            JTextField naytto2, JTextField naytto1, JButton C,
-            JButton pii, Laskutoimitukset laskutoimitukset, JButton potenssiinkaksi,
-            JButton yksi, JButton kaksi, JButton kolme, JButton neljä, JButton viisi,
-            JButton kuusi, JButton seitsemän, JButton kahdeksan, JButton yhdeksän, JButton nolla, JButton CE, JButton sin, JButton cos, JButton tan) {
+        JButton jako, JButton kerto, JButton yhtakuin, 
+        JTextField naytto2, JTextField naytto1, JButton C,
+        JButton pii, Laskutoimitukset laskutoimitukset, JButton potenssiinkaksi,
+        JButton yksi, JButton kaksi, JButton kolme, JButton neljä, JButton viisi,
+        JButton kuusi, JButton seitsemän, JButton kahdeksan, JButton yhdeksän, 
+        JButton nolla, JButton CE, JButton sin, JButton cos, JButton tan, JButton round) {
 
-        this.plus = plus;
-        this.miinus = miinus;
-        this.kerto = kerto;
-        this.yhtakuin = yhtakuin;
-        this.jako=jako;
-        this.C = C;
-        this.pii = pii;
-        this.naytto1 = naytto1;
-        this.naytto2 = naytto2;
-        this.laskut=laskutoimitukset;
-        this.potenssiinkaksi=potenssiinkaksi;
-        this.yksi=yksi;
-        this.kaksi=kaksi;
-        this.kolme=kolme;
-        this.neljä=neljä;
-        this.viisi=viisi;
-        this.kuusi=kuusi;
-        this.seitsemän=seitsemän;
-        this.kahdeksan=kahdeksan;
-        this.yhdeksän=yhdeksän;
-        this.nolla=nolla;
-        this.CE=CE;
-        this.cos=cos;
-        this.tan=tan;
-        this.sin=sin;
+            this.plus = plus;
+            this.miinus = miinus;
+            this.kerto = kerto;
+            this.yhtakuin = yhtakuin;
+            this.jako=jako;
+            this.C = C;
+            this.pii = pii;
+            this.naytto1 = naytto1;
+            this.naytto2 = naytto2;
+            this.laskut=laskutoimitukset;
+            this.potenssiinkaksi=potenssiinkaksi;
+            this.yksi=yksi;
+            this.kaksi=kaksi;
+            this.kolme=kolme;
+            this.neljä=neljä;
+            this.viisi=viisi;
+            this.kuusi=kuusi;
+            this.seitsemän=seitsemän;
+            this.kahdeksan=kahdeksan;
+            this.yhdeksän=yhdeksän;
+            this.nolla=nolla;
+            this.CE=CE;
+            this.cos=cos;
+            this.tan=tan;
+            this.sin=sin;
+            this.round=round;
 
 
     }
@@ -103,10 +107,14 @@
  * Luokka kuuntelee näppäimiä
  */
 
-    public void nappaintenTunnistus(ActionEvent e) {
+    @Override
+    public void actionPerformed(ActionEvent e) {
         JButton jbutton = (JButton)e.getSource();
         String nappula = jbutton.getText();
+//        double syotettyLuku = Double.parseDouble(naytto2.getText());
+//        double tulostettuLuku = Double.parseDouble(naytto1.getText());
 
+        
         switch (nappula) {
             case "1": naytto2.setText(naytto2.getText() + "1");  NappiElavaksi();
                 break;
@@ -128,13 +136,34 @@
                 break;
             case "0": naytto2.setText(naytto2.getText() + "0");  NappiElavaksi();
                 break;
-            case "C": naytto1.setText("0");
+            case "C": naytto1.setText("0.0");
             case "lukitus": C.setEnabled(false);
                 break;
             case "CE": naytto2.setText("");
             case "lukitus2": CE.setEnabled(false);
                 break;
-
+            case "round": naytto1.setText(laskut.pyorista(Double.parseDouble(naytto1.getText())) + "");
+                break;
+            case "=" : naytto1.setText(laskut.yhtakuin(Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;
+            case "π" : naytto1.setText(laskut.pii(Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;                
+            case "Sin" : naytto1.setText(laskut.sin(Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;
+            case "Cos" : naytto1.setText(laskut.cos(Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;                
+            case "Tan" : naytto1.setText(laskut.tan(Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;
+            case "+" : naytto1.setText(laskut.plussaa(Double.parseDouble(naytto1.getText()), Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;                
+            case "-" : naytto1.setText(laskut.miinusta(Double.parseDouble(naytto1.getText()), Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;
+            case "*" : naytto1.setText(laskut.tulo(Double.parseDouble(naytto1.getText()), Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;
+            case "/" : naytto1.setText(laskut.jakoLasku(Double.parseDouble(naytto1.getText()), Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;
+            case "x^2" : naytto1.setText(laskut.potenssiinKaksi(Double.parseDouble(naytto2.getText()), Double.parseDouble(naytto2.getText())) + ""); naytto2.setText("");
+                break;
         }
     }
 
@@ -142,181 +171,19 @@
 /**
  * Luokka kuuntelee näppäimiä
  */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        nappaintenTunnistus(e);
-    //        break;
-        if (e.getSource() == plus) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double summa = laskut.plussaa(tulostettuLuku, syotettyLuku);
-
-                naytto1.setText(summa + "");
-
-                naytto2.setText("");
-
-    //                tyhjennaNappain(summa);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-            }
-
-
-        } else if (e.getSource() == miinus) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double erotus = laskut.miinusta(tulostettuLuku, syotettyLuku);
-
-                    naytto1.setText("" + erotus);
-
-
-                naytto2.setText("");
-
-    //                tyhjennaNappain(erotus);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-            }
-        } else if (e.getSource() == kerto) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double kertolasku = laskut.tulo(syotettyLuku, tulostettuLuku);
-
-                naytto1.setText("" + kertolasku);
-                naytto2.setText("");
-    //                tyhjennaNappain(kertolasku);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-            }
-        } else if (e.getSource() == yhtakuin) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double lukusyotetty = laskut.yhtakuin(syotettyLuku);
-
-                naytto1.setText("" + lukusyotetty);
-                naytto2.setText("");
-
-    //                tyhjennaNappain(lukusyotetty);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-            }
-        } else if (e.getSource() == pii) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double piintulos = this.laskut.pii(syotettyLuku);
-                
-                naytto1.setText("" + piintulos);
-                naytto2.setText("");
-    //                tyhjennaNappain(piintulos);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-            }
-                } else if (e.getSource() == jako) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto1.getText());
-                double tulostettuLuku = Double.parseDouble(naytto2.getText());
-                double jakolasku = this.laskut.jakoLasku(tulostettuLuku, syotettyLuku);
-                naytto1.setText("" + jakolasku);
-                naytto2.setText("");
-    //                tyhjennaNappain(jakolasku);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-            }
-                } else if (e.getSource() == potenssiinkaksi) {
-            try {
-  
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double syotettyLuku2 = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double potenssiin = this.laskut.potenssiinKaksi(syotettyLuku, syotettyLuku2);
-
-                naytto1.setText(potenssiin + "");
-
-                naytto2.setText("");
-
-    //                tyhjennaNappain(potenssiin);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-              }
-                }else if (e.getSource() == sin) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double potenssiin = this.laskut.sin(syotettyLuku);
-
-                naytto1.setText(potenssiin + "");
-
-                naytto2.setText("");
-
-    //                tyhjennaNappain(potenssiin);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-              }
-                }
-        else if (e.getSource() == cos) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double potenssiin = this.laskut.cos(syotettyLuku);
-
-                naytto1.setText(potenssiin + "");
-
-                naytto2.setText("");
-
-    //                tyhjennaNappain(potenssiin);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-              }
-                }
-                else if (e.getSource() == tan) {
-            try {
-                double syotettyLuku = Double.parseDouble(naytto2.getText());
-                double tulostettuLuku = Double.parseDouble(naytto1.getText());
-                double potenssiin = this.laskut.tan(syotettyLuku);
-
-                naytto1.setText(potenssiin + "");
-
-                naytto2.setText("");
-
-    //                tyhjennaNappain(potenssiin);
-
-            } catch (NumberFormatException ea) {
-                this.naytto2.setText("");
-                return;
-              }
-           
-                }
-
-    } 
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        nappaintenTunnistus(e);
+//}
+// 
     /**
  * Luokka hoitaa napin "eläväksi"
  */
     public void NappiElavaksi() {
 
-                    CE.setEnabled(true);
+        CE.setEnabled(true);
 
-                    C.setEnabled(true);
+        C.setEnabled(true);
 
     }
 

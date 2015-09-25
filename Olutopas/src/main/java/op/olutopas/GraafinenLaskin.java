@@ -76,11 +76,12 @@ import javax.swing.WindowConstants;
     JButton tan = new JButton("Tan");
     JButton potenssiinkaksi = new JButton("x^2");
     JButton CE = new JButton("CE");
+    JButton round = new JButton("round");
     C.setEnabled(false);
 
     TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, jako, kerto, yhtakuin, 
                 naytto2, naytto1, C, pii, laskutoimitukset, potenssiinkaksi, yksi, kaksi, kolme, neljä,
-                viisi, kuusi, seitsemän, kahdeksan, yhdeksän, nolla, CE, sin, cos, tan);
+                viisi, kuusi, seitsemän, kahdeksan, yhdeksän, nolla, CE, sin, cos, tan, round);
  
         plus.addActionListener(kuuntelija);
         jako.addActionListener(kuuntelija);
@@ -104,6 +105,7 @@ import javax.swing.WindowConstants;
         sin.addActionListener(kuuntelija);
         cos.addActionListener(kuuntelija);
         tan.addActionListener(kuuntelija);
+        round.addActionListener(kuuntelija);
 
         
         panel.add(yksi);
@@ -128,6 +130,7 @@ import javax.swing.WindowConstants;
         panel.add(yhtakuin);
         panel.add(C);
         panel.add(CE);
+        panel.add(round);
         container.add(naytto1);
         container.add(naytto2);
         container.add(panel);
