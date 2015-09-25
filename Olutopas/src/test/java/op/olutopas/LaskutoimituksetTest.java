@@ -54,7 +54,7 @@ public class LaskutoimituksetTest {
         assertTrue(erotus<epsilon);
     }
     @Test
-    public void piiOikein() {
+    public void piiOikeinTest() {
         double tulos = this.laskut.pii(1);
         double erotus = Math.abs(tulos-3.141592653589793);
 //        double oikeatulos = 3.141592653589793;
@@ -63,15 +63,39 @@ public class LaskutoimituksetTest {
         
     }
     @Test
-    public void nelioJuuri() {
+    public void nelioJuuriTest() {
         double tulos = this.laskut.nelioJuuri(1);
         double erotus = Math.abs(tulos-1);
         assertTrue(erotus<epsilon);
     }
     @Test
-    public void pyoristys() {
+    public void pyoristysTest() {
         double tulos = this.laskut.pyorista(1.7);
         double erotus = Math.abs(tulos-2);
+        assertTrue(erotus<epsilon);
+    }
+    @Test
+    public void sinTest() {
+        double tulos = this.laskut.sin(1);
+        double erotus = Math.abs(tulos-0.8414709848078965);
+        assertTrue(erotus<epsilon);
+    }
+    @Test
+    public void cosTest() {
+        double tulos = this.laskut.cos(1);
+        double erotus = Math.abs(tulos-0.5403023058681398);
+        assertTrue(erotus<epsilon);
+    }
+    @Test
+    public void tanTest() {
+        double tulos = this.laskut.tan(1);
+        double erotus = Math.abs(tulos-1.5574077246549023);
+        assertTrue(erotus<epsilon);
+    }
+    @Test
+    public void yhtakuinTest() {
+        double tulos = this.laskut.yhtakuin(1);
+        double erotus = Math.abs(tulos-1);
         assertTrue(erotus<epsilon);
     }
 

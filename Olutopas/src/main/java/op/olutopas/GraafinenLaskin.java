@@ -23,62 +23,62 @@ import javax.swing.WindowConstants;
  * 
  */
 
-public class GraafinenLaskin implements Runnable {
+    public class GraafinenLaskin implements Runnable {
  
     private JFrame frame;
  
  
     @Override
     public void run() {
-        frame = new JFrame("Laskin");
-        frame.setPreferredSize(new Dimension(500, 500));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        luoKomponentit(frame.getContentPane());
-        frame.setVisible(true);   
-        frame.pack();
+    frame = new JFrame("Laskin");
+    frame.setPreferredSize(new Dimension(500, 500));
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    luoKomponentit(frame.getContentPane());
+    frame.setVisible(true);   
+    frame.pack();
     }
  
     private void luoKomponentit(Container container) {
-        GridLayout GL = new GridLayout(3, 5);
-        container.setLayout(GL);
-        JTextField naytto1 = new JTextField("0"); naytto1.getCursor();
-        naytto1.setEnabled(false);
+    GridLayout GL = new GridLayout(3, 5);
+    container.setLayout(GL);
+    JTextField naytto1 = new JTextField("0"); naytto1.getCursor();
+    naytto1.setEnabled(false);
         
-        JTextField naytto2 = new JTextField();
+    JTextField naytto2 = new JTextField();
         
-        JPanel panel = new JPanel(new GridLayout(0, 6, 5, 5));
-        panel.setBackground(Color.blue);
+    JPanel panel = new JPanel(new GridLayout(0, 6, 5, 5));
+    panel.setBackground(Color.lightGray);
 //        panel.setBackground(Color.getHSBColor(245, 245, 245));
          
-        container.add(panel);
+    container.add(panel);
  
-        container.add(naytto1);
-        Laskutoimitukset laskutoimitukset = new Laskutoimitukset();
-        JButton yksi = new JButton("1");
-        JButton kaksi = new JButton("2");
-        JButton kolme = new JButton("3");
-        JButton plus = new JButton("+");
-        JButton miinus = new JButton("-");
-        JButton kerto = new JButton("*");
-        JButton neljä = new JButton("4");
-        JButton viisi = new JButton("5");
-        JButton kuusi = new JButton("6");
-        JButton yhtakuin = new JButton("=");
-        JButton C = new JButton("C");
-        JButton pii= new JButton("π");
-        JButton seitsemän = new JButton("7");
-        JButton kahdeksan = new JButton("8");
-        JButton yhdeksän = new JButton("9");
-        JButton nolla = new JButton("0");
-        JButton jako = new JButton("/");
-        JButton sin = new JButton("Sin");
-        JButton cos = new JButton("Cos");
-        JButton tan = new JButton("Tan");
-        JButton potenssiinkaksi = new JButton("x^2");
-        JButton CE = new JButton("CE");
-        C.setEnabled(false);
+    container.add(naytto1);
+    Laskutoimitukset laskutoimitukset = new Laskutoimitukset();
+    JButton yksi = new JButton("1");
+    JButton kaksi = new JButton("2");
+    JButton kolme = new JButton("3");
+    JButton plus = new JButton("+");
+    JButton miinus = new JButton("-");
+    JButton kerto = new JButton("*");
+    JButton neljä = new JButton("4");
+    JButton viisi = new JButton("5");
+    JButton kuusi = new JButton("6");
+    JButton yhtakuin = new JButton("=");
+    JButton C = new JButton("C");
+    JButton pii= new JButton("π");
+    JButton seitsemän = new JButton("7");
+    JButton kahdeksan = new JButton("8");
+    JButton yhdeksän = new JButton("9");
+    JButton nolla = new JButton("0");
+    JButton jako = new JButton("/");
+    JButton sin = new JButton("Sin");
+    JButton cos = new JButton("Cos");
+    JButton tan = new JButton("Tan");
+    JButton potenssiinkaksi = new JButton("x^2");
+    JButton CE = new JButton("CE");
+    C.setEnabled(false);
 
-        TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, jako, kerto, yhtakuin, 
+    TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, jako, kerto, yhtakuin, 
                 naytto2, naytto1, C, pii, laskutoimitukset, potenssiinkaksi, yksi, kaksi, kolme, neljä,
                 viisi, kuusi, seitsemän, kahdeksan, yhdeksän, nolla, CE, sin, cos, tan);
  
@@ -135,7 +135,7 @@ public class GraafinenLaskin implements Runnable {
     }
  
     public JFrame getFrame() {
-        return frame;
+    return frame;
     }
  
  
