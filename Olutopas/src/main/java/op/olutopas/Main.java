@@ -2,9 +2,10 @@
 package op.olutopas;
 
 /**
- *
+ *Main laittaa projektin käyntiin
  * @author ollivaan
  */
+
 import javax.swing.SwingUtilities;
  
     public class Main {

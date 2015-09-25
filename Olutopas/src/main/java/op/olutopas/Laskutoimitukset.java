@@ -33,7 +33,7 @@ public class Laskutoimitukset {
         /**
  * Metodi laskee kertolaskun
  * @param   syotettyLuku   Käyttäjän antama syöte
- * @param   tulostettuLuku Käyttäjän antama syöte
+ * @param   tulostettuLuku 
  * @return Tulo
  */
     public double tulo(double tulostettuLuku, double syotettyLuku) {

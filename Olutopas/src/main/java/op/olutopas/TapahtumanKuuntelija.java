@@ -173,6 +173,8 @@
 
  /**
  * Luokka hoitaa napin "eläväksi"
+ * eli nappi muuttuu toiminnalliseksi
+ * kun laskukentissä on poistettavaa
  */
     public void NappiElavaksi() {
 
