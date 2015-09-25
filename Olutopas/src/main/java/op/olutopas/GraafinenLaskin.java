@@ -48,7 +48,7 @@ import javax.swing.WindowConstants;
         
     JPanel panel = new JPanel(new GridLayout(0, 6, 5, 5));
     panel.setBackground(Color.lightGray);
-//        panel.setBackground(Color.getHSBColor(245, 245, 245));
+
          
     container.add(panel);
  
@@ -119,7 +119,7 @@ import javax.swing.WindowConstants;
         panel.add(kuusi);
         panel.add(jako);
         panel.add(pii);
-        panel.add(potenssiinkaksi); //
+        panel.add(potenssiinkaksi); 
         panel.add(seitsemän);
         panel.add(kahdeksan);
         panel.add(yhdeksän);

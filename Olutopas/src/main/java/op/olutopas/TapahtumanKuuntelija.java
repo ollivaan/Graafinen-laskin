@@ -64,7 +64,7 @@
  * @param sin
  * @param cos
  * @param tan 
- * luokassa määritellään kyseiset komponentit xD
+ * luokassa määritellään kyseiset komponentit 
  */
     public TapahtumanKuuntelija(JButton plus, JButton miinus, 
         JButton jako, JButton kerto, JButton yhtakuin, 
@@ -104,7 +104,9 @@
 
     }
 /**
- * Luokka kuuntelee näppäimiä
+ * Luokka kuuntelee näppäimiä ja välittää laskut 
+ * laskutoimitukset luokalle joka välittää ne takaisin
+ * ja tämä tulostaa samalla tulokset
  */
 
     @Override
@@ -168,15 +170,8 @@
     }
 
 
-/**
- * Luokka kuuntelee näppäimiä
- */
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        nappaintenTunnistus(e);
-//}
-// 
-    /**
+
+ /**
  * Luokka hoitaa napin "eläväksi"
  */
     public void NappiElavaksi() {
@@ -184,8 +179,7 @@
         CE.setEnabled(true);
 
         C.setEnabled(true);
-
-    }
+        }
 
 
 
