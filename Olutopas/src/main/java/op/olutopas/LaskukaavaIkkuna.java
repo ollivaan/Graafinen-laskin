@@ -50,7 +50,7 @@ public class LaskukaavaIkkuna implements Runnable {
                 inputpanel.setLayout(new FlowLayout());
                 JTextField input = new JTextField(20);
                 JButton button = new JButton("Laske");
-                LaskuJarjestys laskujarjestys = new LaskuJarjestys();
+                LaskuJarjestys laskujarjestys = new LaskuJarjestys(textArea);
                 
                 LKTapahtumaKuuntelija laskukaavaikkunantapahtumakuuntelija = new LKTapahtumaKuuntelija(button, textArea, input, laskujarjestys);
                 button.addActionListener(laskukaavaikkunantapahtumakuuntelija);

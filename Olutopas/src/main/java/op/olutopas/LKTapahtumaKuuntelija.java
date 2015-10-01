@@ -30,8 +30,12 @@ public class LKTapahtumaKuuntelija implements ActionListener {
     
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand()=="Laske") {
-            this.textArea.setText(input.getText());
-            this.laskujarjestys.laske(); // tänne laskujärjestys ja tämä välittää laskennan laskutoimitusluokalle 
+//            this.textArea.setText(input.getText());
+
+            this.laskujarjestys.laske(input.getText());
+
+//            this.laskujarjestys.laske(input.getText());
+//            this.laskujarjestys.laske("" + input.getText()); // tänne laskujärjestys ja tämä välittää laskennan laskutoimitusluokalle 
             // ja täällä tulostetaan tulos
             
             
