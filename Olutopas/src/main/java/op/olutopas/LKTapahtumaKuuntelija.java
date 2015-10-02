@@ -12,6 +12,11 @@ import javax.swing.JTextField;
  *
  * @author ollivaan
  */
+/**
+ * Luokka kuuntelee laskukaavaikkunan komentoja
+ * ja välittää tiedon laskuJarjestys luokalle
+ *
+ */
 public class LKTapahtumaKuuntelija implements ActionListener {
     
     public LaskukaavaIkkuna laskukaavaikkuna;

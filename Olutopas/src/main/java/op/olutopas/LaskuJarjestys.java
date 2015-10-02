@@ -10,6 +10,11 @@ import javax.swing.JTextField;
 * @author ollivaan
 */
 public class LaskuJarjestys {
+/**
+ * Luokka lukee laskun ja määrittää laskujärjestyksen
+ * ja välittää laskut laskitoimitukset luokalle
+ *
+ */
 
 public LaskukaavaIkkuna laskukaavaikkuna;
 public JButton button;
@@ -17,7 +22,10 @@ public JTextArea textArea;
 public JTextField input;
 public Laskutoimitukset laskutoimitukset;
 
-
+/**
+ * Metodi LaskuJarjestys luo laskujärjestyksen
+ *
+ */
 public LaskuJarjestys(JTextArea textArea) {
     this.textArea=textArea;
 }
