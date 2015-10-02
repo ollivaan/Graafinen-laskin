@@ -1,38 +1,50 @@
 package op.olutopas;
 
+import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
- *
- * @author ollivaan
- */
+*
+* @author ollivaan
+*/
 public class LaskuJarjestys {
 
-    public LaskukaavaIkkuna laskukaavaikkuna;
-    public JButton button;
-    public JTextArea textArea;
-    public JTextField input;
+public LaskukaavaIkkuna laskukaavaikkuna;
+public JButton button;
+public JTextArea textArea;
+public JTextField input;
+public Laskutoimitukset laskutoimitukset;
 
-    public LaskuJarjestys(JTextArea textArea) {
-        this.textArea=textArea;
-    }
 
-    public void laske(String lauseke) {
-        String merkit [] = {"+","-","*","/"}; 
-        char kirjain;
+public LaskuJarjestys(JTextArea textArea) {
+    this.textArea=textArea;
+}
+// LUON BINAARIPUULLA TÄMÄN LUOKAN TÄMÄ LUOKKA ON KESKEN!
+public void laske(String lauseke) {
+    String merkit [] = {"*","/"}; 
+    char kirjain;
 //        this.textArea.setText(lauseke);
-        char[] lausekechar = lauseke.toCharArray(); 
+    char[] lausekechar = lauseke.toCharArray(); 
 //        System.out.println(lausekechar.length);
-       for(int pituus = lausekechar.length; pituus >= 0; pituus--) {
-           
-            if(lauseke.contains("(") || lauseke.contains(")")) {
-               
+   for(int pituus = lausekechar.length; pituus >= 0; pituus--) {
 
-             this.textArea.setText(lauseke);          
-        }
-      }
+       for(int merkki = merkit.length-1; merkki>=0; merkki--) {
+           if(lauseke.startsWith(merkit[merkki]) || lauseke.endsWith(merkit[merkki])) {              
+               this.textArea.setText("Lasku ei voi alkaa/loppua kerto tai jako merkillä");
+               return;
+           }              
+       }
+       if(lausekechar[pituus]=='+') {
+//             double arvo = Double.parseDouble(lausekechar[pituus-1]);
+           this.laskutoimitukset.plussaa(lausekechar[pituus-1], lausekechar[pituus+1]);
 
-                }
+       }
+         this.textArea.setText(lauseke);     
+
+  }
+
+            }
+
 }
