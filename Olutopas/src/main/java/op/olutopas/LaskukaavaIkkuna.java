@@ -25,7 +25,7 @@ import javax.swing.UIManager;
  *
  */
 public class LaskukaavaIkkuna implements Runnable {
-    
+  
 /**
  * Metodi luo uuden ikkunan
  *
@@ -48,6 +48,7 @@ public class LaskukaavaIkkuna implements Runnable {
                 JPanel panel = new JPanel();
                 panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
                 JTextArea textArea = new JTextArea(15, 50);
+                Laskutoimitukset laskut = new Laskutoimitukset();
 
                 textArea.setEditable(false);
                 JScrollPane scroller = new JScrollPane(textArea);
@@ -57,7 +58,7 @@ public class LaskukaavaIkkuna implements Runnable {
                 inputpanel.setLayout(new FlowLayout());
                 JTextField input = new JTextField(20);
                 JButton button = new JButton("Laske");
-                LaskuJarjestys laskujarjestys = new LaskuJarjestys(textArea);
+                LaskuJarjestys laskujarjestys = new LaskuJarjestys(textArea, laskut);
                 
                 LKTapahtumaKuuntelija laskukaavaikkunantapahtumakuuntelija = new LKTapahtumaKuuntelija(button, textArea, input, laskujarjestys);
                 button.addActionListener(laskukaavaikkunantapahtumakuuntelija);

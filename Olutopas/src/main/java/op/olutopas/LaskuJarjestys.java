@@ -10,14 +10,17 @@ public class LaskuJarjestys {
 
     public LaskukaavaIkkuna laskukaavaikkuna;
     public JButton button;
+    public Laskutoimitukset laskut;
     public JTextArea textArea;
     public JTextField input;
     static int decider;
     static char checker;
     static Node root = null;
 
-    public LaskuJarjestys(JTextArea textArea) {
+    public LaskuJarjestys(JTextArea textArea, Laskutoimitukset laskut) {
         this.textArea=textArea;
+        this.laskut=laskut;
+       
     }
 
     public void laske(String lauseke) {
@@ -75,8 +78,8 @@ public class LaskuJarjestys {
                             double x = intStack.pop().data;
                             double y = intStack.pop().data;
 
-                            NodeDouble.data = y + x;
-
+                            NodeDouble.data = this.laskut.plussaa(y, x);
+//                            this.laskut.plussaa(y, x);
                             intStack.push(NodeDouble);
 
 
@@ -88,8 +91,8 @@ public class LaskuJarjestys {
                             x = intStack.pop().data;
                             y = intStack.pop().data;
 
-                            NodeDouble.data = y - x;
-
+//                            NodeDouble.data = y - x;
+                            NodeDouble.data = this.laskut.miinusta(y, x);
                             intStack.push(NodeDouble);
 
                             break;
@@ -100,8 +103,8 @@ public class LaskuJarjestys {
                             x = intStack.pop().data;
                             y = intStack.pop().data;
 
-                            NodeDouble.data = y / x;
-
+//                            NodeDouble.data = y / x;
+                            NodeDouble.data = this.laskut.jakoLasku(y, x);
                             intStack.push(NodeDouble);
 
                             break;
@@ -112,7 +115,8 @@ public class LaskuJarjestys {
                             x = intStack.pop().data;
                             y = intStack.pop().data;
 
-                            NodeDouble.data = y * x;
+//                            NodeDouble.data = y * x;
+                            NodeDouble.data = this.laskut.tulo(y, x);
 
                             intStack.push(NodeDouble);
 
