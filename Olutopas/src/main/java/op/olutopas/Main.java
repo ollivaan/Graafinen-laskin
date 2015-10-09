@@ -10,8 +10,12 @@ import javax.swing.SwingUtilities;
  
     public class Main {
     public static void main(String[] args) {
-    SwingUtilities.invokeLater(new GraafinenLaskin());
+//    SwingUtilities.invokeLater(new GraafinenLaskin());
+        Kaynnista();
 
     
    }
+    public static void Kaynnista() {
+        SwingUtilities.invokeLater(new GraafinenLaskin());
+    }
 }

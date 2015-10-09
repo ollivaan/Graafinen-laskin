@@ -20,9 +20,16 @@ import javax.swing.UIManager;
  *
  * @author ollivaan
  */
+/**
+ * Luokka luo uuden ikkunan jossa voi laskea laskuja
+ *
+ */
 public class LaskukaavaIkkuna implements Runnable {
     
-
+/**
+ * Metodi luo uuden ikkunan
+ *
+ */
     
     public static void uusiIkkuna() {
         EventQueue.invokeLater(new Runnable() {
