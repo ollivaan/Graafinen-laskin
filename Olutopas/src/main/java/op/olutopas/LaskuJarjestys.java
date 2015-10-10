@@ -5,7 +5,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.util.Stack;
 //KESKEN! Jako ei toimi kunnolla 9> ei toimi. ja logiikka... noh.
-
+/**
+ * Luokka hoitaa laskujarjestyksen
+ *
+ */
 public class LaskuJarjestys {
 
     public LaskukaavaIkkuna laskukaavaikkuna;
@@ -22,7 +25,12 @@ public class LaskuJarjestys {
         this.laskut=laskut;
        
     }
-
+/**
+ * Metodi saa parametrina syötteen käyttäjältä 
+ * ja pilkkoo syötteen ja lähettää laskutoimitukset laskutoimitukset luokalle
+ * joka välittää ne takaisin ja metodi tulostaa tuloksen
+ *
+ */
     public void laske(String lauseke) {
 
             System.out.println(lauseke);
@@ -40,6 +48,7 @@ public class LaskuJarjestys {
 
             for (int i = 0; i < postfix.length; i++) {
                     Node node = new Node(postfix[i]);
+                    
                     switch (postfix[i]) {
                     case '0':case '1':case '2':case '3':case '4':
                     case '5':case '6':case '7':case '8':case '9':
@@ -68,6 +77,7 @@ public class LaskuJarjestys {
 
                     case '0':case '1':case '2':case '3':case '4':
                     case '5':case '6':case '7':case '8':case '9':
+                   
 
                             NodeDouble = new NodeDouble(Character.getNumericValue(postfix[i]));
                             intStack.push(NodeDouble);
@@ -156,8 +166,10 @@ public class LaskuJarjestys {
 
 
                     switch (infix[i]) {
+                        
                     case '0':case '1':case '2':case '3':case '4':
                     case '5':case '6':case '7':case '8':case '9':
+                    
                             result[count] = infix[i];
                             count++;
 
@@ -218,7 +230,10 @@ public class LaskuJarjestys {
 
             return result;
     }
-
+/**
+ * 
+ *
+ */
 
     public static void checkPrecedence(char a, char b) {
 
