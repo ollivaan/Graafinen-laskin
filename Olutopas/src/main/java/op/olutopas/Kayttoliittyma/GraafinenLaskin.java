@@ -1,4 +1,4 @@
-package op.olutopas;
+package op.olutopas.Kayttoliittyma;
 
 /**
  * Luokassa luodaan komponentit/elementit
@@ -24,6 +24,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.text.DefaultCaret;
+import op.olutopas.Logiikka.Laskutoimitukset;
+import op.olutopas.Logiikka.TapahtumanKuuntelija;
 
 
 /**

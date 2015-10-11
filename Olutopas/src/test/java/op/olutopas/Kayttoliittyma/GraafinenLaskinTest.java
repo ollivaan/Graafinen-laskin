@@ -1,11 +1,12 @@
 
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package op.olutopas;
 
+package op.olutopas.Kayttoliittyma;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author ollivaan
  */
-public class MainTest {
+public class GraafinenLaskinTest {
     
-    public MainTest() {
+    public GraafinenLaskinTest() {
     }
     
     @BeforeClass
@@ -38,9 +39,4 @@ public class MainTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

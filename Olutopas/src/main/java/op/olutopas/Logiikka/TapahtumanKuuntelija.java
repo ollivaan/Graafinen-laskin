@@ -1,9 +1,12 @@
-package op.olutopas;
+package op.olutopas.Logiikka;
 
 /**
  * Luokka kuuntelee komponentteja
  */
 
+import op.olutopas.Logiikka.Laskutoimitukset;
+import op.olutopas.Kayttoliittyma.LaskukaavaIkkuna;
+import op.olutopas.Kayttoliittyma.GraafinenLaskin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;

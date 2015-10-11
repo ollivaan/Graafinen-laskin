@@ -1,4 +1,4 @@
-package op.olutopas;
+package op.olutopas.Logiikka;
 
 /**
  * Luokka hoitaa Laskutoimitukset

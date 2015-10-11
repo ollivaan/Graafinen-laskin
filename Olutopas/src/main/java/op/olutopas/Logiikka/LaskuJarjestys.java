@@ -1,5 +1,6 @@
-package op.olutopas;
+package op.olutopas.Logiikka;
 
+import op.olutopas.Kayttoliittyma.LaskukaavaIkkuna;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;

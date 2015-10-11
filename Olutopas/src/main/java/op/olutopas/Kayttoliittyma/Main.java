@@ -1,11 +1,12 @@
 
-package op.olutopas;
+package op.olutopas.Kayttoliittyma;
 
 /**
  *Main laittaa projektin käyntiin
  * @author ollivaan
  */
 
+import op.olutopas.Kayttoliittyma.GraafinenLaskin;
 import javax.swing.SwingUtilities;
  
     public class Main {

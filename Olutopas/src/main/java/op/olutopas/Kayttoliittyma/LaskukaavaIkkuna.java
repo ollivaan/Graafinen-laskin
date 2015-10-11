@@ -1,6 +1,6 @@
 
 
-package op.olutopas;
+package op.olutopas.Kayttoliittyma;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -15,6 +15,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
+import op.olutopas.Logiikka.LKTapahtumaKuuntelija;
+import op.olutopas.Logiikka.LaskuJarjestys;
+import op.olutopas.Logiikka.Laskutoimitukset;
 
 /**
  *

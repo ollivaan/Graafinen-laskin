@@ -1,7 +1,9 @@
 
 
-package op.olutopas;
+package op.olutopas.Logiikka;
 
+import op.olutopas.Logiikka.LaskuJarjestys;
+import op.olutopas.Kayttoliittyma.LaskukaavaIkkuna;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;

@@ -1,7 +1,7 @@
 
-package op.olutopas;
-import op.olutopas.Laskutoimitukset;
-import op.olutopas.Laskutoimitukset;
+package op.olutopas.Logiikka;
+import op.olutopas.Logiikka.Laskutoimitukset;
+import op.olutopas.Logiikka.Laskutoimitukset;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;

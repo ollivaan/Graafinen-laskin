@@ -5,38 +5,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package op.olutopas;
+package op.olutopas.Logiikka;
+import op.olutopas.Kayttoliittyma.GraafinenLaskin;
+import op.olutopas.Logiikka.TapahtumanKuuntelija;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author ollivaan
  */
-public class GraafinenLaskinTest {
+public class TapahtumanKuuntelijaTest {
     
-    public GraafinenLaskinTest() {
-    }
+    TapahtumanKuuntelija tapahtumankuuntelija;
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
+    public TapahtumanKuuntelijaTest() {
     }
     
     @Before
     public void setUp() {
+
     }
+    
+
     
     @After
     public void tearDown() {
     }
+
 
 }
