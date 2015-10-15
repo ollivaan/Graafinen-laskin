@@ -18,6 +18,7 @@ import javax.swing.UIManager;
 import op.olutopas.Logiikka.LKTapahtumaKuuntelija;
 import op.olutopas.Logiikka.LaskuJarjestys;
 import op.olutopas.Logiikka.Laskutoimitukset;
+import op.olutopas.Logiikka.Tiedostoontallentaminen;
 
 /**
  *
@@ -28,7 +29,7 @@ import op.olutopas.Logiikka.Laskutoimitukset;
  *
  */
 public class LaskukaavaIkkuna implements Runnable {
-  
+//  public GraafinenLaskin graafinenlaskin;
 /**
  * Metodi luo uuden ikkunan
  *
@@ -52,6 +53,7 @@ public class LaskukaavaIkkuna implements Runnable {
                 panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
                 JTextArea textArea = new JTextArea(15, 50);
                 Laskutoimitukset laskut = new Laskutoimitukset();
+                GraafinenLaskin graafinenlaskin = new GraafinenLaskin();
 
                 textArea.setEditable(false);
                 JScrollPane scroller = new JScrollPane(textArea);
@@ -61,15 +63,22 @@ public class LaskukaavaIkkuna implements Runnable {
                 inputpanel.setLayout(new FlowLayout());
                 JTextField input = new JTextField(20);
                 JButton button = new JButton("Laske");
+                JButton tallennabutton = new JButton("Save");
+     
                 LaskuJarjestys laskujarjestys = new LaskuJarjestys(textArea, laskut);
+                Tiedostoontallentaminen talleta = new Tiedostoontallentaminen();
                 
-                LKTapahtumaKuuntelija laskukaavaikkunantapahtumakuuntelija = new LKTapahtumaKuuntelija(button, textArea, input, laskujarjestys);
+                LKTapahtumaKuuntelija laskukaavaikkunantapahtumakuuntelija = new LKTapahtumaKuuntelija(button, textArea,
+                        input, laskujarjestys, talleta);
                 button.addActionListener(laskukaavaikkunantapahtumakuuntelija);
+                tallennabutton.addActionListener(laskukaavaikkunantapahtumakuuntelija);
+//                .addActionListener(laskukaavaikkunantapahtumakuuntelija);
                 
                     
                 panel.add(scroller);
                 inputpanel.add(input);
                 inputpanel.add(button);
+                inputpanel.add(tallennabutton);
                 panel.add(inputpanel);
                 frame.getContentPane().add(BorderLayout.CENTER, panel);
                 frame.pack();

@@ -26,6 +26,7 @@ import javax.swing.WindowConstants;
 import javax.swing.text.DefaultCaret;
 import op.olutopas.Logiikka.Laskutoimitukset;
 import op.olutopas.Logiikka.TapahtumanKuuntelija;
+import op.olutopas.Logiikka.Tiedostoontallentaminen;
 
 
 /**
@@ -72,6 +73,7 @@ public class GraafinenLaskin implements Runnable {
         container.add(naytto1);
         Laskutoimitukset laskutoimitukset = new Laskutoimitukset();
 //        GraafinenLaskin glaskin = new GraafinenLaskin();
+        Tiedostoontallentaminen tiedostoontallentaminen = new Tiedostoontallentaminen();
         LaskukaavaIkkuna laskukaavaikkuna = new LaskukaavaIkkuna();
         JButton yksi = new JButton("1");
         JButton kaksi = new JButton("2");
@@ -97,11 +99,13 @@ public class GraafinenLaskin implements Runnable {
         JButton CE = new JButton("CE");
         JButton round = new JButton("round");
         JButton uusiikkuna = new JButton("New"); //uutta
+        JButton tallenna = new JButton("Save");
         C.setEnabled(false);
 
         TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, jako, kerto, yhtakuin,
                 naytto2, naytto1, C, pii, laskutoimitukset, potenssiinkaksi, yksi, kaksi, kolme, neljä,
-                viisi, kuusi, seitsemän, kahdeksan, yhdeksän, nolla, CE, sin, cos, tan, round, laskukaavaikkuna);
+                viisi, kuusi, seitsemän, kahdeksan, yhdeksän, nolla, CE, sin, cos, tan, round, laskukaavaikkuna,
+                tallenna, tiedostoontallentaminen);
 
         plus.addActionListener(kuuntelija);
         jako.addActionListener(kuuntelija);
@@ -127,6 +131,7 @@ public class GraafinenLaskin implements Runnable {
         tan.addActionListener(kuuntelija);
         round.addActionListener(kuuntelija);
         uusiikkuna.addActionListener(kuuntelija);
+        tallenna.addActionListener(kuuntelija);
 
         panel.add(yksi);
         panel.add(kaksi);
@@ -152,6 +157,7 @@ public class GraafinenLaskin implements Runnable {
         panel.add(CE);
         panel.add(round);
         panel.add(uusiikkuna);
+        panel.add(tallenna);
         container.add(naytto1);
         container.add(naytto2);
         container.add(panel);
