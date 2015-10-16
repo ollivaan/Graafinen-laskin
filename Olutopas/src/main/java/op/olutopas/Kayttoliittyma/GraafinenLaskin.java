@@ -72,7 +72,6 @@ public class GraafinenLaskin implements Runnable {
 
         container.add(naytto1);
         Laskutoimitukset laskutoimitukset = new Laskutoimitukset();
-//        GraafinenLaskin glaskin = new GraafinenLaskin();
         Tiedostoontallentaminen tiedostoontallentaminen = new Tiedostoontallentaminen();
         LaskukaavaIkkuna laskukaavaikkuna = new LaskukaavaIkkuna();
         JButton yksi = new JButton("1");
@@ -102,10 +101,9 @@ public class GraafinenLaskin implements Runnable {
         JButton tallenna = new JButton("Save");
         C.setEnabled(false);
 
-        TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(plus, miinus, jako, kerto, yhtakuin,
-                naytto2, naytto1, C, pii, laskutoimitukset, potenssiinkaksi, yksi, kaksi, kolme, neljä,
-                viisi, kuusi, seitsemän, kahdeksan, yhdeksän, nolla, CE, sin, cos, tan, round, laskukaavaikkuna,
-                tallenna, tiedostoontallentaminen);
+        TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(
+                naytto2, naytto1,laskutoimitukset,laskukaavaikkuna,
+                tiedostoontallentaminen);
 
         plus.addActionListener(kuuntelija);
         jako.addActionListener(kuuntelija);

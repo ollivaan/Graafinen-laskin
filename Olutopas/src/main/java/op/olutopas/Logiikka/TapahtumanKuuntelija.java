@@ -16,38 +16,40 @@ import javax.swing.JTextField;
 
 public class TapahtumanKuuntelija implements ActionListener {
 
-    private JButton plus;
-    private JButton miinus;
-    private JButton kerto;
-    private JButton yhtakuin;
-    private JButton jako;
-    private JButton C;
-    private JButton pii;
-    private JButton potenssiinkaksi;
-    private JButton sin;
-    private JButton cos;
-    private JButton tan;
-    private JButton yksi;
-    private JButton kaksi;
-    private JButton kolme;
-    private JButton neljä;
-    private JButton viisi;
-    private JButton kuusi;
-    private JButton seitsemän;
-    private JButton kahdeksan;
-    private JButton yhdeksän;
-    private JButton nolla;
-    private JButton CE;
-    private JButton round;
-   
+    public JButton plus;
+    public JButton miinus;
+    public JButton kerto;
+    public JButton yhtakuin;
+    public JButton jako;
+    public JButton C;
+    public JButton pii;
+    public JButton potenssiinkaksi;
+    public JButton sin;
+    public JButton cos;
+    public JButton tan;
+    public JButton yksi;
+    public JButton kaksi;
+    public JButton kolme;
+    public JButton neljä;
+    public JButton viisi;
+    public JButton kuusi;
+    public JButton seitsemän;
+    public JButton kahdeksan;
+    public JButton yhdeksän;
+    public JButton nolla;
+    public JButton CE;
+    public JButton round;
+    public JButton uusiikkuna;
+    public JButton tallenna;
+    
     public JTextField naytto1;
     public JTextField naytto2;
     public Laskutoimitukset laskut;
-    public JButton uusiikkuna;
     public GraafinenLaskin glaskin;
     public LaskukaavaIkkuna laskukaavaikkuna;
     public Tiedostoontallentaminen tiedostoontallentaminen;
-    public JButton tallenna;
+//    public NappaimenInfo nappaimeninfo;
+    
 
     /**
      *
@@ -77,52 +79,23 @@ public class TapahtumanKuuntelija implements ActionListener {
      * @param cos
      * @param tan luokassa määritellään kyseiset komponentit
      */
-    public TapahtumanKuuntelija(JButton plus, JButton miinus,
-            JButton jako, JButton kerto, JButton yhtakuin,
-            JTextField naytto2, JTextField naytto1, JButton C,
-            JButton pii, Laskutoimitukset laskutoimitukset, JButton potenssiinkaksi,
-            JButton yksi, JButton kaksi, JButton kolme, JButton neljä, JButton viisi,
-            JButton kuusi, JButton seitsemän, JButton kahdeksan, JButton yhdeksän,
-            JButton nolla, JButton CE, JButton sin, JButton cos, JButton tan, JButton round,
-             LaskukaavaIkkuna laskukaavaikkuna, JButton tallenna, Tiedostoontallentaminen tiedostoontallentaminen) {
+    public TapahtumanKuuntelija(
+            JTextField naytto2, JTextField naytto1,
+            Laskutoimitukset laskutoimitukset,
+             LaskukaavaIkkuna laskukaavaikkuna,Tiedostoontallentaminen tiedostoontallentaminen) {
 
-        this.plus = plus;
-        this.miinus = miinus;
-        this.kerto = kerto;
-        this.yhtakuin = yhtakuin;
-        this.jako = jako;
-        this.C = C;
-        this.pii = pii;
         this.naytto1 = naytto1;
         this.naytto2 = naytto2;
         this.laskut = laskutoimitukset;
-        this.potenssiinkaksi = potenssiinkaksi;
-        this.yksi = yksi;
-        this.kaksi = kaksi;
-        this.kolme = kolme;
-        this.neljä = neljä;
-        this.viisi = viisi;
-        this.kuusi = kuusi;
-        this.seitsemän = seitsemän;
-        this.kahdeksan = kahdeksan;
-        this.yhdeksän = yhdeksän;
-        this.nolla = nolla;
-        this.CE = CE;
-        this.cos = cos;
-        this.tan = tan;
-        this.sin = sin;
-        this.round = round;
-        this.uusiikkuna=uusiikkuna; // tässä jotain mätää
-        
-        this.glaskin=glaskin;
         this.laskukaavaikkuna=laskukaavaikkuna;
-        this.tallenna=tallenna;
+//        this.uusiikkuna.setToolTipText("Open new window"); //info luokkatee joka välittää tiedon!
         this.tiedostoontallentaminen=tiedostoontallentaminen;
-        this.tallenna.setToolTipText("Save your calculations");
-//        this.laskukaavaikkuna.setToolTipText("Opens new window");
+//        this.tallenna.setToolTipText("Save your calculations");
+        
         
 
     }
+
 
 
 
@@ -174,14 +147,16 @@ public class TapahtumanKuuntelija implements ActionListener {
                     break;
                 case "9":
                     naytto2.setText(naytto2.getText() + "9");
+                    this.yhdeksän.getToolTipText();
                     NappiElavaksi();
                     break;
                 case "0":
                     naytto2.setText(naytto2.getText() + "0");
+                    this.nolla.getToolTipText();
                     NappiElavaksi();
                     break;
                 case "C":
-                    naytto1.setText("0.0");
+                    naytto1.setText("0.0"); //tässä jotain mätää vinossa
                 case "lukitus":
                     C.setEnabled(false);
                     break;
@@ -234,7 +209,7 @@ public class TapahtumanKuuntelija implements ActionListener {
                     naytto2.setText("");
                     break;
                 case "New": laskukaavaikkuna.uusiIkkuna();
-//                uusiikkuna.getToolTipText();
+                uusiikkuna.getToolTipText();
                 break;
                 case "Save": this.tiedostoontallentaminen.talleta(naytto2.getText(),naytto1.getText());
                 naytto2.setText("Tallennus onnistui!");

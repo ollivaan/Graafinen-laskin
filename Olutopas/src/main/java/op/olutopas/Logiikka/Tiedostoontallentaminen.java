@@ -5,19 +5,11 @@
  */
 package op.olutopas.Logiikka;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
+
 import java.io.File;
 import java.io.PrintWriter;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.temporal.ChronoField;
 import java.util.Calendar;
-import java.util.Date;
+
 
 /**
  *
@@ -25,12 +17,10 @@ import java.util.Date;
  */
 public class Tiedostoontallentaminen {
     public Laskutoimitukset laskut;
+    public Calendar calendar = Calendar.getInstance();
+    public java.util.Date now = calendar.getTime();
     
     public void talleta(String input, String output) throws Exception{
-
-           Calendar calendar = Calendar.getInstance();
-           java.util.Date now = calendar.getTime();
-
 
 
        try{
@@ -43,9 +33,7 @@ public class Tiedostoontallentaminen {
        } catch(Exception e ){
            
        }
-//        PrintWriter tiedosto = new PrintWriter(new File( "Tallennettu.txt"));
-//        tiedosto.print(arvo);
-//        tiedosto.close();
+
     }
     
 }
