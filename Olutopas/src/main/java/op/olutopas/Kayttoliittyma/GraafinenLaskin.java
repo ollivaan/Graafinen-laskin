@@ -4,26 +4,17 @@ package op.olutopas.Kayttoliittyma;
  * Luokassa luodaan komponentit/elementit
  *
  */
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
+
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
-import javax.swing.text.DefaultCaret;
 import op.olutopas.Logiikka.Laskutoimitukset;
 import op.olutopas.Logiikka.TapahtumanKuuntelija;
 import op.olutopas.Logiikka.Tiedostoontallentaminen;
@@ -43,8 +34,7 @@ public class GraafinenLaskin implements Runnable {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
         }
         frame = new JFrame("Laskin");
         frame.setPreferredSize(new Dimension(500, 500));
@@ -94,42 +84,93 @@ public class GraafinenLaskin implements Runnable {
         JButton sin = new JButton("Sin");
         JButton cos = new JButton("Cos");
         JButton tan = new JButton("Tan");
-        JButton potenssiinkaksi = new JButton("^");
         JButton CE = new JButton("CE");
         JButton round = new JButton("round");
         JButton uusiikkuna = new JButton("New"); //uutta
         JButton tallenna = new JButton("Save");
         C.setEnabled(false);
+        
+        tallenna.setToolTipText("Save");                
+        yksi.setToolTipText("One");
+        kaksi.setToolTipText("Two");
+        kolme.setToolTipText("Three");
+        neljä.setToolTipText("Four");
+        viisi.setToolTipText("Five");
+        kuusi.setToolTipText("Six");
+        seitsemän.setToolTipText("Seven");
+        kahdeksan.setToolTipText("Eight");
+        yhdeksän.setToolTipText("Nine");
+        nolla.setToolTipText("Zero");
+
+        kerto.setToolTipText("Multiply");
+        miinus.setToolTipText("Minus");
+        plus.setToolTipText("Plus");
+        round.setToolTipText("Round");
+        C.setToolTipText("Clear");
+        CE.setToolTipText("Cleat everything");
+        tan.setToolTipText("Tanget");
+        cos.setToolTipText("Cosine");
+        sin.setToolTipText("Sini");
+        jako.setToolTipText("Divide");
+        pii.setToolTipText("Pi");       
+        
+        uusiikkuna.setToolTipText("New window");
+        yhtakuin.setToolTipText("Equals to");
 
         TapahtumanKuuntelija kuuntelija = new TapahtumanKuuntelija(
-                naytto2, naytto1,laskutoimitukset,laskukaavaikkuna,
-                tiedostoontallentaminen);
+        naytto2, naytto1, C,laskutoimitukset, CE,laskukaavaikkuna,
+        tiedostoontallentaminen);
+        
 
         plus.addActionListener(kuuntelija);
+        plus.getToolTipText();
         jako.addActionListener(kuuntelija);
+        jako.getToolTipText();
         miinus.addActionListener(kuuntelija);
+        miinus.getToolTipText();
         kerto.addActionListener(kuuntelija);
+        kerto.getToolTipText();
         C.addActionListener(kuuntelija);
+        C.getToolTipText();
         yhtakuin.addActionListener(kuuntelija);
+        yhtakuin.getToolTipText();
         pii.addActionListener(kuuntelija);
-        potenssiinkaksi.addActionListener(kuuntelija);
+        pii.getToolTipText();
+
         yksi.addActionListener(kuuntelija);
+        yksi.getToolTipText();
         kaksi.addActionListener(kuuntelija);
+        kaksi.getToolTipText();
         kolme.addActionListener(kuuntelija);
+        kolme.getToolTipText();
         neljä.addActionListener(kuuntelija);
+        neljä.getToolTipText();
         viisi.addActionListener(kuuntelija);
+        viisi.getToolTipText();
         kuusi.addActionListener(kuuntelija);
+        kuusi.getToolTipText();
         seitsemän.addActionListener(kuuntelija);
+        seitsemän.getToolTipText();
         kahdeksan.addActionListener(kuuntelija);
+        kahdeksan.getToolTipText();
         yhdeksän.addActionListener(kuuntelija);
+        yhdeksän.getToolTipText();
         nolla.addActionListener(kuuntelija);
+        nolla.getToolTipText();
         CE.addActionListener(kuuntelija);
+        CE.getToolTipText();
         sin.addActionListener(kuuntelija);
+        sin.getToolTipText();
         cos.addActionListener(kuuntelija);
+        cos.getToolTipText();
         tan.addActionListener(kuuntelija);
+        tan.getToolTipText();
         round.addActionListener(kuuntelija);
+        round.getToolTipText();
         uusiikkuna.addActionListener(kuuntelija);
+        uusiikkuna.getToolTipText();
         tallenna.addActionListener(kuuntelija);
+        tallenna.getToolTipText();
 
         panel.add(yksi);
         panel.add(kaksi);
@@ -142,7 +183,7 @@ public class GraafinenLaskin implements Runnable {
         panel.add(kuusi);
         panel.add(jako);
         panel.add(pii);
-        panel.add(potenssiinkaksi);
+        panel.add(round);
         panel.add(seitsemän);
         panel.add(kahdeksan);
         panel.add(yhdeksän);
@@ -153,7 +194,6 @@ public class GraafinenLaskin implements Runnable {
         panel.add(yhtakuin);
         panel.add(C);
         panel.add(CE);
-        panel.add(round);
         panel.add(uusiikkuna);
         panel.add(tallenna);
         container.add(naytto1);

@@ -5,7 +5,6 @@ package op.olutopas.Kayttoliittyma;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,21 +20,17 @@ import op.olutopas.Logiikka.Laskutoimitukset;
 import op.olutopas.Logiikka.Tiedostoontallentaminen;
 
 /**
- *
- * @author ollivaan
- */
-/**
  * Luokka luo uuden ikkunan jossa voi laskea laskuja
  *
  */
-public class LaskukaavaIkkuna implements Runnable {
-//  public GraafinenLaskin graafinenlaskin;
+public class LaskukaavaIkkuna {
 /**
  * Metodi luo uuden ikkunan
  *
  */
-    
+
     public static void uusiIkkuna() {
+
         EventQueue.invokeLater(new Runnable() {
             
             @Override
@@ -68,11 +63,12 @@ public class LaskukaavaIkkuna implements Runnable {
                 LaskuJarjestys laskujarjestys = new LaskuJarjestys(textArea, laskut);
                 Tiedostoontallentaminen talleta = new Tiedostoontallentaminen();
                 
-                LKTapahtumaKuuntelija laskukaavaikkunantapahtumakuuntelija = new LKTapahtumaKuuntelija(button, textArea,
+                LKTapahtumaKuuntelija laskukaavaikkunantapahtumakuuntelija = new LKTapahtumaKuuntelija(
+                        textArea,
                         input, laskujarjestys, talleta);
                 button.addActionListener(laskukaavaikkunantapahtumakuuntelija);
                 tallennabutton.addActionListener(laskukaavaikkunantapahtumakuuntelija);
-//                .addActionListener(laskukaavaikkunantapahtumakuuntelija);
+
                 
                     
                 panel.add(scroller);
@@ -91,9 +87,6 @@ public class LaskukaavaIkkuna implements Runnable {
     }
 
 
-    @Override
-    public void run() {
-    }
 
 
 }

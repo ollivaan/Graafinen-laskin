@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package op.olutopas.Logiikka;
 
 
@@ -12,15 +8,20 @@ import java.util.Calendar;
 
 
 /**
- *
- * @author pirita
+ * Luokka tallentaa laskutoimituksen tekstitiedostoon
+ * 
  */
 public class Tiedostoontallentaminen {
     public Laskutoimitukset laskut;
     public Calendar calendar = Calendar.getInstance();
     public java.util.Date now = calendar.getTime();
     
-    public void talleta(String input, String output) throws Exception{
+/**
+ * Metodi talletaa laskutoimitukset
+ * @param input käyttäjän lasku
+ * @param output käyttäjän syöttämän laskun tulos
+ */
+    public void talleta(String input, String output) {
 
 
        try{

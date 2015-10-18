@@ -5,7 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.util.Stack;
-//KESKEN! Jako ei toimi kunnolla 9> ei toimi. ja logiikka... noh.
+
 /**
  * Luokka hoitaa laskujarjestyksen
  *
@@ -20,23 +20,32 @@ public class LaskuJarjestys {
     static int decider;
     static char checker;
     static Node root = null;
-
+    public String lauseke;
+/**
+ * Alustetaan komponentit
+ *@param textArea tuo komponentin
+ * @param laskut hoitaa laskutoimitukset
+ */
     public LaskuJarjestys(JTextArea textArea, Laskutoimitukset laskut) {
         this.textArea=textArea;
         this.laskut=laskut;
        
     }
+
 /**
+ * 
  * Metodi saa parametrina syötteen käyttäjältä 
  * ja pilkkoo syötteen ja lähettää laskutoimitukset laskutoimitukset luokalle
  * joka välittää ne takaisin ja metodi tulostaa tuloksen
- *
+ * @param lauseke   Käyttäjän antama lauseke
  */
-    public void laske(String lauseke) {
 
-            System.out.println(lauseke);
+    public void laske(String lauseke){
 
-            char[] infix = lauseke.toCharArray();
+    
+            this.lauseke=lauseke;
+
+            char[] infix = this.lauseke.toCharArray();
 
 
             char[] postfix = postfixer(infix);
@@ -46,13 +55,17 @@ public class LaskuJarjestys {
             }
 
             Stack<Node> stack = new Stack<Node>();
+            
 
+            
             for (int i = 0; i < postfix.length; i++) {
                     Node node = new Node(postfix[i]);
+                    
                     
                     switch (postfix[i]) {
                     case '0':case '1':case '2':case '3':case '4':
                     case '5':case '6':case '7':case '8':case '9':
+
                             stack.push(node);
 
                             break;
@@ -90,7 +103,7 @@ public class LaskuJarjestys {
                             double y = intStack.pop().data;
 
                             NodeDouble.data = this.laskut.plussaa(y, x);
-//                            this.laskut.plussaa(y, x);
+
                             intStack.push(NodeDouble);
 
 
@@ -102,7 +115,7 @@ public class LaskuJarjestys {
                             x = intStack.pop().data;
                             y = intStack.pop().data;
 
-//                            NodeDouble.data = y - x;
+
                             NodeDouble.data = this.laskut.miinusta(y, x);
                             intStack.push(NodeDouble);
 
@@ -114,8 +127,8 @@ public class LaskuJarjestys {
                             x = intStack.pop().data;
                             y = intStack.pop().data;
 
-//                            NodeDouble.data = y / x;
-                            NodeDouble.data = this.laskut.jakoLasku(y, x);
+
+                            NodeDouble.data = this.laskut.jakoLasku(x, y);
                             intStack.push(NodeDouble);
 
                             break;
@@ -126,7 +139,7 @@ public class LaskuJarjestys {
                             x = intStack.pop().data;
                             y = intStack.pop().data;
 
-//                            NodeDouble.data = y * x;
+
                             NodeDouble.data = this.laskut.tulo(y, x);
 
                             intStack.push(NodeDouble);
@@ -141,13 +154,12 @@ public class LaskuJarjestys {
     double aDouble = intStack.pop().data;
     String aString = Double.toString(aDouble);
 
-//            this.textArea.setText(Double.parseDouble(intStack.pop().data));
-//doubleparseduoble tohon ja sextText
              this.textArea.setText(aString);          
-//        }
+
       
 
                 }
+
     public static char[] postfixer(char[] infix) {
 
 
@@ -232,8 +244,9 @@ public class LaskuJarjestys {
             return result;
     }
 /**
- * 
- *
+ * Metodi katsoo laskutoimitusten arvojärjestyksen
+ *@param a vaihtaa merkin arvojärjestyksen mukaiseksi 
+ * @param b vaihtaa merkin arvojärjestyksen mukaiseksi
  */
 
     public static void checkPrecedence(char a, char b) {
@@ -243,7 +256,7 @@ public class LaskuJarjestys {
             case '/':
                     switch (b) {
                     case '/':decider = 0;break;
-                    case '*':decider = 1;break;
+                    case '*':decider = 0;break;
                     case '+':decider = 1;break;
                     case '-':decider = 1;break;
                     default:
@@ -251,7 +264,7 @@ public class LaskuJarjestys {
                     break;
             case '*':
                     switch (b) {
-                    case '/':decider = 2;break;
+                    case '/':decider = 0;break;
                     case '*':decider = 0;break;
                     case '+':decider = 1;break;
                     case '-':decider = 1;break;
@@ -263,7 +276,7 @@ public class LaskuJarjestys {
                     case '/':decider = 2;break;
                     case '*':decider = 2;break;
                     case '+':decider = 0;break;
-                    case '-':decider = 1;break;
+                    case '-':decider = 0;break;
                     default:
                     }
                     break;
@@ -271,7 +284,7 @@ public class LaskuJarjestys {
                     switch (b) {
                     case '/':decider = 2;break;
                     case '*':decider = 2;break;
-                    case '+':decider = 2;break;
+                    case '+':decider = 0;break;
                     case '-':decider = 0;break;
                     default:
                     }
@@ -280,6 +293,7 @@ public class LaskuJarjestys {
             }
 
     }
+
 
 }
     class NodeDouble {
@@ -296,4 +310,5 @@ class Node {
             this.data = data;
     }
 }
+
 

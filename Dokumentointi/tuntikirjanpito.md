@@ -1,6 +1,3 @@
 tuntikirjanpito
-04.08.2015 2h
-->2h yht 4h
-->2h yht 6h
-->2h yht 8h
-->2h yht 10h
+
+Koko prosessiin meni yhteensä aikaa noin 90-100h.

@@ -2,7 +2,7 @@
 
 package op.olutopas.Logiikka;
 
-import op.olutopas.Logiikka.LaskuJarjestys;
+
 import op.olutopas.Kayttoliittyma.LaskukaavaIkkuna;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,10 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-/**
- *
- * @author ollivaan
- */
+
 /**
  * Luokka kuuntelee laskukaavaikkunan komentoja
  * ja välittää tiedon laskuJarjestys luokalle
@@ -31,25 +28,34 @@ public class LKTapahtumaKuuntelija implements ActionListener {
     public JTextField input;
     
     
-   
-    public LKTapahtumaKuuntelija(JButton button, JTextArea textArea, 
+ /**
+ * Määritellään tarvittavat välineet.
+     * @param textArea käyttäjän syötte tulostettu
+     * @param input käyttäjän syöte
+     * @param laskujarjestys parametrina luokka joka on vastuussa laskujarjestyksestä
+     * @param talleta parametrina luokka joka hoitaa laskun talletuksen*/
+    public LKTapahtumaKuuntelija(JTextArea textArea, 
             JTextField input, LaskuJarjestys laskujarjestys,Tiedostoontallentaminen talleta) {
-        this.button=button;
+        
         this.textArea=textArea;
         this.input=input;
         this.laskujarjestys=laskujarjestys;
         this.talleta=talleta;
     }
     
+    @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand()=="Laske") {
-            this.laskujarjestys.laske(input.getText());
-        } else if(e.getActionCommand()=="Save") {
+        if("Laske".equals(e.getActionCommand())) {
+            try {
+                this.laskujarjestys.laske(input.getText());
+            } catch (Exception ex) {
+                Logger.getLogger(LKTapahtumaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if("Save".equals(e.getActionCommand())) {
             try {
                 this.talleta.talleta(input.getText(),textArea.getText());
             } catch (Exception ex) {
                 input.setText(ex.getMessage());
-//                Logger.getLogger(LKTapahtumaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
