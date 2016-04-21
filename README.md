@@ -1,1 +1,1 @@
-# Tämä on LASKIN! nimi on väärä
+# Graafinen laskin
